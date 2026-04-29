@@ -1,0 +1,152 @@
+% AI Tutor
+
+\patternSix
+
+\subsection*{Context}
+
+\ac{bvi} students are increasingly represented in \ac{stem} degree programs. In these disciplines, instruction relies on visual learning materials such as lecture slides, scripts, exercise sheets, diagrams, circuit schematics, graphs, and tables. Although accessibility standards exist, many teaching materials remain only partially accessible or entirely inaccessible to students who depend on screen readers or text-based representations.
+
+
+\subsection*{Problem}
+
+Core teaching materials in \ac{stem} courses are frequently inaccessible to BVI students. In particular, graphical representations such as diagrams, plots, \ac{kv} maps, circuit schematics, and state machines cannot be consumed directly with screen readers.
+
+Students may use general-purpose AI systems (e.g., ChatGPT) to obtain text-based explanations or descriptions of visual content. However, this ad hoc approach requires repeated prompting and reintroducing course context for each document. The accessibility burden is shifted to the student, leading to unequal learning conditions and avoidable inefficiencies.
+
+
+\subsection*{Forces}
+\renewcommand*\labelitemi{\textbullet}
+\begin{itemize}
+    \item \ac{stem} education relies heavily on visual abstractions.
+    \item Teaching staff often lack time or expertise to fully redesign materials for accessibility.
+    \item \ac{bvi} students need structured, consistent, and context-aware explanations.
+    \item General-purpose AI tools are powerful but lack course-specific knowledge unless carefully prompted.
+    \item Accessibility solutions must scale across courses without excessive manual effort.
+\end{itemize}
+
+\subsection*{Solution}
+
+\begin{sol}
+Configure a course-specific, \ac{llm}-based AI tutor grounded in the materials, terminology, and learning objectives of a particular course, and enforce explicit accessibility rules for \ac{bvi} students. A Custom GPT is one practical implementation of this idea.
+\end{sol}
+
+To resolve the challenges of visual reliance in \ac{stem},  limited instructor time,  the need for consistent, context-aware explanations, and scalability across semesters, the tutor is set up as a reusable and maintainable resource with three building blocks:
+
+\begin{itemize}
+    \item Instruction policy
+    \newline
+    Define a stable interaction and accessibility policy: the AI tutor has to explain content in a linear and screen-reader-friendly language. Avoid purely spatial references like ``left/right/top/bottom'' and purely decorative elements like emojis (see Pattern 1 \textsc{Core of Content}). 
+    
+
+    \item Curated course knowledge base
+    \newline
+    Provide course documents as the primary reference (lecture slides, script, exercise sheets, learning goals) and add compact guideline documents that encode recurring conventions. In our case these include (i) an accessibility guideline (how to describe figures, \ac{kv} maps, and time series) and (ii) a CircuitJS-to-SPICE mapping with examples and templates. This supports scalability and reduces repeated manual explanations.
+
+    \item Well defined transformation workflows
+    \newline
+    Establish repeatable workflows for typical artifacts:
+    \begin{enumerate}
+        \item \emph{PDFs, slides or figures}: (1) short overview, (2) structured description of elements and connections, (3) interpretation of meaning/function in the course context.
+        \item \emph{Electronic Circuits}: (1) verbal reconstruction of the schematic (nodes, components, polarity), (2) generation of a commented SPICE/LTspice netlist using speaking node names, (3) explicit marking of assumptions if the source is ambiguous.
+        \item \emph{Simulation output}: prefer text-first result reporting e.g. as  tables  over graphical plotting, such that \ac{bvi} students can inspect results with screen readers.  Pattern 3 \textsc{Accessibility of Graphics} introduces solutions for accessing plottings and Pattern 4 \textsc{Sonification of Time Series} 
+shows a solution for making tabular time series, which are a typical textual outputs of simulation programes, accessible via the ear as an alternative channel.  
+    \end{enumerate}
+\end{itemize}
+
+To support adoption and quality assurance, provide two short documents alongside the tutor:
+\begin{itemize}
+    \item An \textit{instructor manual} describing how to prepare materials for the knowledge base (consistent naming, missing figure descriptions, update workflow), and
+    \item An \textit{accessible student guide} describing how to upload documents, request different levels of explanation, and ask for conversions, e.g. ``describe the circuit and the simulation result''.
+\end{itemize}
+
+Finally, maintain the AI tutor through a lightweight quality assurance process:  run a small set of standard test prompts like the generation of figure descriptions whenever new materials are added. Adjust the instruction policy and guideline documents if recurring failure modes appear.
+
+\subsection*{Resulting Context}
+
+Students gain access to a persistent, course-aware AI tutor that can explain lecture content, exercises, and graphical representations in an accessible, text-based form. The individual effort required to make materials accessible is significantly reduced.
+
+Instructors are supported rather than burdened, as they do not need to manually create alternative materials for every student. The approach improves inclusivity while preserving the original structure and learning objectives of the course.
+
+\subsection*{Examples}
+
+The pattern was applied in the course ``Technical Informatics~1 (TI-1)'' at a university of applied sciences. A dedicated tutor instance was provided to students (e.g., via a course link such as \url{https://chatgpt.com/g/g-691ee1833a4481919e30b6c052201050-technische-informatik-1-tutor-fur-blinde}). The following examples illustrate typical usage scenarios.
+
+\begin{enumerate}
+    \item Conversion of exercise sheets into  linear, screen-reader-friendly tasks.\\
+    \emph{Input:} A student uploads a PDF exercise sheet with multi-column layout and embedded figures.\\
+    \emph{Request:} ``Summarize the sheet, then rewrite all tasks in a linear format for a screen reader. Replace \ac{kv} map figures with minterm lists and provide a text table for any plotted signals.''\\
+    \emph{Output:} The tutor produces (i) a short overview of the sheet, (ii) a numbered, linear task list without layout dependencies, and (iii) textual substitutes for visual elements (e.g., minterm/maxterm lists, truth tables in text form, and time/value tables for signals).
+
+    \item Generation of figure and diagram explanations with progressive disclosure.\\
+    \emph{Input:} A lecture slide containing a diagram (e.g., Wheatstone bridge, timing diagram, or block diagram).\\
+    \emph{Request:} ``Describe the figure in two sentences first, then give a structured description of all elements and connections. Finally, explain what the diagram means in the context of this lecture.''\\
+    \emph{Output:} The tutor follows the defined workflow: short overview, structured description (components/nodes/relations), and an interpretation that links the figure to course concepts. Students can then ask follow-up questions to increase or decrease the level of detail.
+
+    \item Conversion of CircuitJS schematics into commented SPICE/LTspice netlist with accessible results.\\
+    \emph{Input:} A CircuitJS screenshot or exported text of a circuit used in an assignment (e.g., diode rectifier, transistor inverter, RLC transient).\\
+    \emph{Request:} ``First describe the circuit in words (nodes, components, polarity). Then generate a commented LTspice netlist using speaking node names. Include text-first output using \texttt{.print} and key metrics with \texttt{.measure} in the simulation tool. Mark any assumptions explicitly.''\\
+    \emph{Output:} The tutor returns (i) a verbal reconstruction, (ii) a commented netlist suitable for screen readers, and (iii) an accessible evaluation setup (tables and measurements) enabling \ac{bvi} students to inspect simulation results without graphical plotting.
+\end{enumerate}
+
+\subsection*{Consequences}
+
+\noindent\textbf{Benefits}
+\begin{itemize}
+    \item[$+$] Visual course artifacts like figure, schematics, \ac{kv} maps, and timing diagrams become available as linear, screen-reader-friendly explanations.
+    \item[$+$]  Students no longer need to repeatedly convert course content by their own. The AI tutor follows a stable instruction policy, which results in accessible learning material of better quality.
+    \item[$+$] By preferring text-first outputs  over graphical plotting, simulation results become accessible using screen readers or Braille displays.
+    \item[$+$]  Once the AI tutor is configured correctly for the generation of accessible course material, incremental updates can be done with less effort when new sheets/slides are added.
+    \item[$+$] The generated accessible learning materials provide an increased independence and alternative ways of self-paced learning.
+\end{itemize}
+
+\noindent\textbf{Liabilities}
+\begin{itemize}
+    \item[$-$] The quality of the generated accessible learning materials  depends on input quality and curation. Inconsistent terminology, missing figure context, or outdated materials reduce explanation quality. An ongoing maintenance of the knowledge base is required.
+    \item[$-$] Using AI tools come along withe the risk of inaccuracies and hallucinations. Misread or ambiguous figures may lead to incorrect explanations. Human verification of the material is required, which is an additional effort.
+    \item[$-$] Creating the instruction policy, guideline documents, and short instructor/student manuals requires initial effort before benefits materialize.
+    \item[$-$]  AI tutors can improve consistency but  become outdated if changes in exercises, notation, or tools are not processed in time.
+    \item[$-$] Without careful framing, students may over-rely on the AI tutor. Instructors should define recommended or acceptable use of the AI tutor and consider privacy/copyright constraints for uploaded materials.
+\end{itemize}
+
+\begin{comment}
+   
+
+\subsection*{Related Patterns}
+
+\begin{itemize}
+    \item \textbf{Accessible by Design:} Designing teaching materials and tools with accessibility as a first-class concern rather than as an afterthought is a core principle of inclusive education and universal design \cite{w3c2023,burgstahler2015}. The AI tutor pattern complements this approach by enabling accessibility even when legacy materials are not fully accessible.
+    \item \textbf{Human-in-the-Loop Accessibility:} Instructors remain responsible for structuring and contextualizing materials, while the AI performs repetitive transformation and explanation tasks. This aligns with human-centered and human-in-the-loop AI concepts, where automation supports but does not replace human expertise \cite{shneiderman2020,ieee2019}.
+    \item \textbf{Personal Learning Tutor:} The AI tutor acts as an individualized learning assistant that adapts explanations to the learner’s pace and prior knowledge. Such adaptive tutoring systems are a well-established application area of AI in education \cite{holmes2019}.
+    \item \textbf{Progressive Disclosure of Complexity:} Students can request explanations at different levels of detail, supporting incremental learning and multiple representations of knowledge, which are central principles of Universal Design for Learning \cite{burgstahler2015,al-azawei2016}.
+    \item \textbf{Single Source of Truth:} Teaching materials remain unchanged for the general audience while accessibility is generated dynamically through the AI. This reduces parallel document maintenance and supports sustainable accessibility practices \cite{lazar2015}.
+\end{itemize}
+
+
+\subsection*{Known Uses}
+
+\begin{itemize}
+    \item \textbf{Technical Informatics~1 (course-specific AI tutor).}
+    The pattern has been applied in the course ``Technical Informatics~1 (TI-1)'' at a university of applied sciences. Students were provided with a dedicated tutor instance (e.g., via a course link such as \url{https://chatgpt.com/g/g-691ee1833a4481919e30b6c052201050-technische-informatik-1-tutor-fur-blinde}) to obtain linear, screen-reader-friendly explanations of lecture and exercise materials. Typical use included (i) rewriting exercise sheets into a linear format, (ii) structured descriptions of figures and diagrams, (iii) conversion of CircuitJS schematics/exports into commented SPICE/Ngspice netlists, and (iv) interpretation of simulation results via text-first outputs (e.g., \texttt{.print}/\texttt{.measure}) rather than graphical plots.
+
+    \item \textbf{Informal use of general-purpose (multimodal) AI as an accessibility aid.}
+    Beyond course-specific deployments, blind and visually impaired learners increasingly use general-purpose AI systems to obtain descriptions of visual content and to translate diagrams into natural-language explanations. Recent evaluations of multimodal LLMs as visual assistants document both the potential of such tools and the need for reliability safeguards, error handling, and uncertainty communication \cite{Karamolegkou2025}.
+
+    \item \textbf{LLM-based interaction for accessible visual artifacts (charts/diagrams).}
+    Related pilot systems and studies show how conversational interaction can improve accessibility of visual artifacts such as charts and diagrams, supporting exploration through structured responses instead of purely visual inspection \cite{Gorniak2024VizAbility,Sharif2025VoxEx}. These uses align with our pattern by treating LLMs as a mediation layer that turns visual encodings into accessible representations.
+\end{itemize}
+
+Although still emerging, these uses indicate that LLM-based tutoring can act as an accessibility amplifier in higher education when embedded within responsible, human-centered design and maintenance practices \cite{shneiderman2020,ieee2019,lazar2015}.
+\end{comment}
+
+\newpage
+\subsection*{Related Work}
+
+Recent work explores \ac{llm} and \ac{mllm} based tools as assistive technologies that translate visually encoded information into representations that can be perceived and navigated by \ac{bvi} users. Empirical evaluations indicate that \ac{mllm}s can support common visual assistance tasks, while reliability and error handling remain central challenges for broader use \cite{Karamolegkou2025}. 
+
+In the domain of data visualizations, conversational systems such as \textit{VizAbility} demonstrate how dialogue-based interaction can augment chart exploration \cite{Gorniak2024VizAbility}. Complementary work emphasizes that accessibility is not achieved by static descriptions alone but depends on interaction mechanisms that preserve user agency and enable independent exploration with screen readers \cite{Sharif2025VoxEx}. %Pattern~6 transfers these insights to \ac{stem} course materials and simulation results by prioritizing text-first outputs and structured explanations over purely graphical representations.
+
+A second line of related research focuses on making diagram semantics explicit so that users can query or learn from diagrams through language-based interaction. Approaches that generate detailed textual descriptions of diagrams for \ac{llm}-based exploration illustrate how ``silent'' graphics can be bridged into structured natural language, supporting accessible learning pathways for \ac{bvi} users \cite{Wegwerth2023Diagram}. 
+
+There is ongoing research how to extract circuit structure from schematics and generating netlists automatically. \cite{Hemker2024Schematics,Huang2025Netlistify} present deep-learning-based schematic-to-netlist pipelines demonstrating progress in component recognition and connectivity extraction. 
+
+For time-dependent simulation outputs, related state-of-the-art work on sonification (see Pattern 4 \textsc{Sonification of Time Series}). Haptic feedback gives an additional non-visual access that can complement text-based traces and key metrics \cite{Spagnuolo2025Sonification}.

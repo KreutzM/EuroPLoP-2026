@@ -1,0 +1,131 @@
+\patternSix
+
+\subsection*{Context}
+
+Blind and visually impaired students are increasingly enrolled in STEM (Science, Technology, Engineering, and Mathematics) degree programs. In these disciplines, teaching heavily relies on visual learning materials such as lecture slides, scripts, exercise sheets, diagrams, circuit schematics, graphs, and tables. While accessibility standards exist, many teaching materials remain only partially accessible or entirely inaccessible to students who rely on screen readers or text-based representations.
+    
+\subsection*{Problem}
+
+\begin{itshape}
+Core teaching materials in STEM courses are often not accessible for blind and visually impaired students. In particular, graphical representations such as diagrams, plots, Karnaugh maps, circuit schematics, or state machines cannot be interpreted directly by screen readers.
+
+Students may individually use general-purpose AI systems (e.g., ChatGPT) to generate text-based explanations or descriptions of visual content. However, this approach requires substantial individual effort, repeated prompting, and contextual explanations for each course and each document. The accessibility burden is shifted to the student, leading to unequal learning conditions and inefficiencies.
+
+\end{itshape}
+
+\subsection*{Forces}
+
+\begin{itemize}
+    \item STEM education relies heavily on visual abstractions.
+    
+    \item Teaching staff often lack time or expertise to fully redesign materials for accessibility.
+    
+    \item Blind and visually impaired students need structured, consistent, and context-aware explanations.
+
+    \item General-purpose AI tools are powerful but lack course-specific knowledge unless carefully prompted.
+
+    \item Accessibility solutions must scale across courses without excessive manual effort.
+\end{itemize}
+
+\subsection*{Solution}
+
+
+\begin{sol}
+Train a course-specific AI tutor using the teaching materials and contextual information of a particular course.
+\end{sol}
+
+
+
+Provide instructors with a concise manual explaining how to prepare and structure their teaching materials so that the AI can be effectively trained on them (e.g., providing textual descriptions of figures, consistent terminology, and contextual explanations).
+
+Inform blind and visually impaired students about the availability of the AI tutor via a dedicated link. Provide a short, fully accessible user guide that explains how to interact with the AI tutor, how to request explanations of graphical content, and how to adapt the level of detail to individual learning needs.
+
+\subsection*{Resulting Context}
+
+Students gain access to a persistent, course-aware AI tutor that can explain lecture content, exercises, and graphical representations in an accessible, text-based form. The individual effort required to make materials accessible is significantly reduced.
+
+Instructors are supported rather than burdened, as they do not need to manually create alternative materials for every student. The approach improves inclusivity while preserving the original structure and learning objectives of the course.
+
+\subsection*{Examples}
+The pattern was applied in the course “Technical Computer Science 1” at a university of applied sciences.
+
+A dedicated AI tutor was created and made available to students via the following link:
+https://chatgpt.com/g/g-691ee1833a4481919e30b6c052201050-technische-informatik-1-tutor-fur-blinde
+
+The AI tutor is accompanied by an accessible user manual for blind and visually impaired students. The tutor supports, among other tasks:
+
+Textual explanations of lecture slides and exercise sheets without relying on images
+
+Verbal descriptions of diagrams, logic circuits, and schematics
+
+Conversion of graphical circuit diagrams (e.g., from CircuitJS) into commented SPICE/Ngspice netlists suitable for screen readers
+
+Step-by-step explanations of calculations, Boolean minimization, and typical problem-solving strategies
+
+In practice, students can ask questions such as “Explain exercise 5” and receive structured, detailed, and accessible explanations aligned with the specific content and terminology of the course.
+
+
+
+
+\subsection*{Consequences}
+
+
+
+
+
+% Benefits
+\renewcommand{\labelenumi}{$+$}
+\begin{itemize}
+    \item Significantly improved accessibility of STEM courses for blind and visually impaired students.
+    
+    \item Reduced individual effort for students to interpret graphical content.
+    
+    \item Scalable solution that can be reused across courses and semesters.
+    
+    \item Minimal additional workload for instructors once the initial setup is complete.
+    
+    \item Increased independence and self-paced learning for students.
+\end{itemize}
+
+% Liabilities
+\renewcommand{\labelenumi}{$-$}
+\begin{itemize}
+    \item Quality of explanations depends on the quality and structure of the training materials.
+    
+    \item AI-generated explanations may contain inaccuracies and require monitoring.
+    
+    \item Initial effort is required to create instructor manuals and course-specific AI configurations.
+    \item Centralized AI tutors improve consistency but may reduce flexibility if not regularly updated.
+    \item Over-reliance on the AI tutor may reduce direct interaction with instructors if not carefully integrated.
+\end{itemize}
+ 
+
+\subsection*{Related Patterns}
+
+
+\subsubsection*{Accessible by Design}
+Designing teaching materials and tools with accessibility as a first-class concern rather than as an afterthought is a core principle of inclusive education and universal design [1,3]. The AI tutor pattern complements this approach by enabling accessibility even when legacy materials are not fully accessible.
+
+\subsubsection*{Human-in-the-Loop Accessibility}
+Instructors remain responsible for structuring and contextualizing materials, while the AI performs repetitive transformation and explanation tasks. This aligns with human-centered and human-in-the-loop AI concepts, where automation supports but does not replace human expertise [4,7].
+
+\subsubsection*{Personal Learning Tutor}
+The AI tutor acts as an individualized learning assistant that adapts explanations to the learner’s pace and prior knowledge. Such adaptive tutoring systems are a well-established application area of AI in education [5].
+
+\subsubsection*{Progressive Disclosure of Complexity}
+Students can request explanations at different levels of detail, supporting incremental learning and multiple representations of knowledge, which are central principles of Universal Design for Learning [3,6].
+
+\subsubsection*{Single Source of Truth}
+Teaching materials remain unchanged for the general audience while accessibility is generated dynamically through the AI. This reduces parallel document maintenance and supports sustainable accessibility practices [2].
+
+\subsection*{Known Uses}
+
+
+
+Technical Computer Science 1 at a university of applied sciences, where a course-specific AI tutor supports blind and visually impaired students with logic circuits, Boolean algebra, number systems, and basic computer architecture. This represents a concrete instantiation of AI-supported accessibility in STEM education.
+
+Individual use of general-purpose AI tools by blind and visually impaired students to translate graphical or visual content into text-based explanations. Such practices have been widely reported as informal accessibility strategies, highlighting both the potential and limitations of non-specialized AI systems [5].
+
+Pilot initiatives in higher education where AI is used to describe diagrams, charts, and mathematical representations in natural language. These initiatives align with broader trends in inclusive and universally designed learning environments [3,6].
+
+Although still emerging, these uses demonstrate how AI can act as an accessibility amplifier in higher education when embedded within responsible, human-centered design frameworks [4,7].

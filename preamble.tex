@@ -1,0 +1,95 @@
+%
+\usepackage[T1]{fontenc}
+% T1 fonts will be used to generate the final print and online PDFs,
+% so please use T1 fonts in your manuscript whenever possible.
+% Other font encondings may result in incorrect characters.
+%
+\usepackage{graphicx}
+% Used for displaying a sample figure. If possible, figure files should
+% be included in EPS format.
+%
+% If you use the hyperref package, please uncomment the following two lines
+% to display URLs in blue roman font according to Springer's eBook style:
+%\usepackage{color}
+%\renewcommand\UrlFont{\color{blue}\rmfamily}
+%\urlstyle{rm}
+%
+
+\usepackage{comment}
+\usepackage{tabularx}
+\usepackage{todonotes} 
+
+\usepackage{listings} 
+\lstset{
+  basicstyle=\footnotesize\tt,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  frame=single,                    % adds a frame around the code
+  language=Java,                 % the language of the code
+  keywordstyle=\bf,
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  tabsize=2                       % sets default tabsize to 2 spaces
+}
+
+% for subfigure
+% warning ist ein bekanntes Problem
+\usepackage{subcaption}
+
+\usepackage{comment}
+
+\input{special_commands.tex}
+
+%\setlength\parindent{0pt}
+%\usepackage{parskip}
+\sloppy
+
+\usepackage[nohyperlinks, printonlyused]{acronym}
+
+\usepackage{xcolor}
+
+\newenvironment{sol}
+    {
+    %\begin{itshape}
+    \begin{bfseries}
+    }
+    { 
+    \end{bfseries}
+    \newline
+    %\end{itshape}
+    }
+%
+
+\usepackage[framemethod=TikZ]{mdframed}
+
+\newenvironment{quoted}
+    {
+    %\begin{itshape}
+    }
+    { 
+    %\end{itshape}
+    }
+%
+
+\surroundwithmdframed[
+    innertopmargin=4pt,
+    innerbottommargin=4pt,
+    innerrightmargin=4pt,
+    innerleftmargin=4pt
+]{quoted}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+}
+
+% Auswahl der included sections, geht nicht, weil Seitenzahl dann springt
+%\includeonly{title_abstract, introduction, 6_Pattern, 7_Pattern, Conclusion_and_Future_Work}

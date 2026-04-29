@@ -1,0 +1,144 @@
+% This is samplepaper.tex, a sample chapter demonstrating the
+% LLNCS macro package for Springer Computer Science proceedings;
+% Version 2.21 of 2022/01/12
+%
+\documentclass[runningheads]{llncs}
+%
+\usepackage[T1]{fontenc}
+% T1 fonts will be used to generate the final print and online PDFs,
+% so please use T1 fonts in your manuscript whenever possible.
+% Other font encondings may result in incorrect characters.
+%
+\usepackage{graphicx}
+% Used for displaying a sample figure. If possible, figure files should
+% be included in EPS format.
+%
+
+
+% Listings 
+\usepackage{listings} 
+\lstset{
+  basicstyle=\footnotesize\tt,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  frame=single,                    % adds a frame around the code
+  language=Java,                 % the language of the code
+  keywordstyle=\bf,
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  tabsize=2                       % sets default tabsize to 2 spaces
+}
+%
+
+\usepackage{subcaption}
+
+\usepackage{amsmath}
+
+\usepackage{comment}
+
+% Hyperref
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=blue,      
+    urlcolor=blue,
+    pdftitle={A Pattern Collection for Accessible Teaching in Computer Science},
+    pdfpagemode=FullScreen,
+}
+% If you use the hyperref package, please uncomment the following two lines
+% to display URLs in blue roman font according to Springer's eBook style:
+\usepackage{color}
+\renewcommand\UrlFont{\color{blue}\rmfamily}
+\urlstyle{rm}
+
+
+
+% start of a contribution
+%
+\title{A Pattern Collection for Accessible Teaching in Computer Science}
+%
+\titlerunning{A Pattern Collection for Accessible Teaching in Computer Science}  % abbreviated title (for running head)
+%                                     also used for the TOC unless
+%                                     \toctitle is used
+%
+\author{ Diethelm Bienhaus\inst{1}\orcid{0000-0002-9207-3412}}
+%
+\authorrunning{ Diethelm Bienhaus} % abbreviated author list (for running head)
+%
+%%%% list of authors for the TOC (use if author list has to be modified)
+%\tocauthor{Ivar Ekeland, Roger Temam, Jeffrey Dean, David Grove,
+%Craig Chambers, Kim B. Bruce, and Elisa Bertino}
+%
+\institute{
+Technische Hochschule Mittelhessen University of Applied Sciences, Germany,\\
+\email{diethelm.bienhaus@mni.thm.de},
+\\ Internet: \url{mni.thm.de}
+}
+
+
+\usepackage{microtype}
+\usepackage{fourier}
+\usepackage{graphicx}
+
+%\newcommand{\fakesc}[1]{\textls[120]{\rlap{\scalebox{0.8}[0.75]{#1}}\hskip0.02ex\rlap{\scalebox{0.8}[0.75]{#1}}\hskip0.02ex\scalebox{0.8}[0.75]{#1}}}
+
+\newcommand{\fakesc}[1]{\textls[-40]{\rlap{\scalebox{0.8}[0.75]{#1}}\hskip0.02ex\rlap{\scalebox{0.8}[0.75]{#1}}\hskip0.02ex\scalebox{0.8}[0.75]{#1}}}
+%\newcommand{\patternname}[1]{\vspace{2em}{\fakesc{\huge{\textsf {#1}}  }}}
+
+\usepackage[]{titlesec}
+\titleformat{\subsection}[hang]{\scshape}{\thesubsection}{2ex}{}[]
+\newcommand{\patternname}[1]{\newpage\subsection*{\large{#1}}}
+
+
+
+\newcommand{\stars}{$\star\star\star$}
+\newcommand{\cstars}{\vspace{0em}\centerline{$\star\star\star$}}
+
+\usepackage{parskip}
+\usepackage{lipsum}  
+
+\sloppy
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\patternOne}{
+    \patternname{Multi-directionally transformable core of content}
+}
+
+\newcommand{\patternTwo}{
+    \patternname{Accessibility of Diagrams}
+}
+
+\newcommand{\patternThree}{
+    \patternname{Accessibility of Graphics}
+}
+
+\newcommand{\patternFour}{
+    \patternname{Accessibility Of Numerical Data}
+}
+
+\newcommand{\patternFive}{
+    \patternname{Graphics with Generated Explanation}
+}
+
+\begin{document}
+
+
+
+\maketitle
+
+\begin{abstract}
+The abstract should briefly summarize the contents of the paper in
+150--250 words.
+
+\keywords{First keyword  \and Second keyword \and Another keyword.}
+\end{abstract}
+
+
+\section{Introduction}
+
+\end{document}

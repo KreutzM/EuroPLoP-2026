@@ -1,0 +1,213 @@
+EuroPLoP 2025 – Sprachliche Optimierung (Rechtschreibung · Grammatik · Stil)
+===============================================================================
+Hinweis: Nur sprachliche/terminologische Korrekturen (kein Layout/Struktur). Für jeden Punkt: Original → Verbesserung → Begründung.
+Tipp: In Overleaf mit "Find in project" arbeiten; globale Ersetzungen zuerst (GLOBAL), dann satzweise Feinheiten (SENTENCE).
+
+
+GLOBAL (einmalig im ganzen Paper anwenden)
+------------------------------------------
+[G1 x] Terminologie: "blind and visual impaired" → "blind and visually impaired (BVI)"
+     Begründung: Adverb "visually" statt Adjektiv; BVI als konsistentes Akronym früh definieren.
+
+[G2 x] Singular/Plural: "Teaching Material" → "Teaching Materials"
+     Begründung: Im Englischen sind Lehrmaterialien normalerweise plural ("materials").
+
+[G3 x] Bindestrich: "barrier free" → "barrier-free"
+     Begründung: Zusammensetzung als attributives Adjektiv erfordert Bindestrich.
+
+[G4 x] Einheitliche Benennung: "Figure" ↔ "Fig."
+     Verbesserung: Überall "Fig." in Captions + "Fig.~\ref{...}" im Text
+     Begründung: LNCS-kompatible, kurze Form einheitlich verwenden.
+
+[G5 x] Fachbegriffe eindeutschen vermeiden (im EN-Paper)
+     Beispiele: "UML Klassendiagramm", "Instanziierung" → "UML class diagram", "instantiation"
+     Begründung: Einheitliche Fachsprache (Englisch) erhöht Klarheit.
+
+     Dt. Begriffe sind als label verwendet
+
+[G6 x] Einheitliche Namen: "KV map" / "Karnaugh map" → "Karnaugh–Veitch (KV) map"
+     Begründung: Erstnennung ausgeschrieben mit Akronym; danach "KV map".
+
+     mit acronym package gelöst
+
+[G7 x] Tool-Branding neutralisieren: "chatGPT" → "an LLM-based system"
+     Begründung: Neutrale, langlebige Formulierung; vermeidet Markenname im Fließtext.
+MK: Hab ChatGPT absichtlich mal belassen.
+
+[G8 x] Anzahl/Plural anpassen: "the four pattern" → "the five patterns"
+     Begründung: Plural + korrekte Anzahl (es sind fünf Patterns).
+
+[G9 x] Erstnennung UML: "the unified modeling language UML" → "the Unified Modeling Language (UML)"
+     Begründung: Eigenname groß + Akronym in Klammern bei der Erstnennung.
+
+[G10 X] Großschreibung nach Satzende: "… format. these formats …" → "… format. These formats …"
+     Begründung: Satzanfang groß.
+
+[G11 x] "Braille" groß schreiben: "braille lines" → "Braille lines"
+     Begründung: Eigenname.
+
+[G12 x] "Screenshot" vereinheitlichen: "Screen shot" → "Screenshot"
+     Begründung: Übliche Zusammenschreibung, konsistent in allen Captions.
+
+[G13 x] "Timeline" vereinheitlichen: "Time-line" → "Timeline"
+     Begründung: Einheitliche Schreibweise in Captions und Text.
+
+
+TITLE/HEADERS
+-------------
+[T1 x] Titel: "… for blind and visual impaired Students …" → "… for Blind and Visually Impaired Students …"
+     Begründung: "visually"; Titel-Capitalization (wichtige Wörter groß); "Students" im Titel groß ist ok.
+
+[T2] Running Title kürzen: Z. B. "Accessible Teaching Materials for BVI Students"
+     Begründung: Kopfzeilen sollten kurz und eindeutig sein.
+MK: Das hab ich nicht gerafft und daher mal nicht angefasst.
+
+
+MK: Vorschlag: Wir lassen Abstract von GPT neu verfassen -> klappt meist sehr gut.
+ABSTRACT (Beispielfehler & Verbesserungen)
+------------------------------------------
+[A1] "are hardly or not at all suitable for BVI students" → "are often inaccessible for BVI students"
+     Begründung: Idiomatischer, präziser und knapper.
+
+[A2] "This paper presents … based on our experiences." → "We contribute a pattern collection …"
+     Begründung: Expliziter Beitragssatz ("We contribute …") stärkt wissenschaftliche Aussage.
+
+[A3] "Hence it is easier understand for screen readers." → "Hence, it is easier to parse for screen readers."
+     Begründung: Infinitiv mit "to"; "parse" ist genauer als "understand" bei Technik.
+
+[A4] "accomplish visual represented information with a generated an checked textual description" →
+     "augment visually represented information with a generated and human-checked textual description"
+     Begründung: "augment" (fachlich), Adverb "visually", "and" statt "an", Bindestrich in "human-checked".
+
+
+SENTENCE-LEVEL (im Haupttext; typische Stellen)
+-----------------------------------------------
+[S1 x] "visual impaired" → "visually impaired"
+     Begründung: Adverb-Form erforderlich.
+
+[S2 x] "students with blindness and visually impairment" → "students who are blind or visually impaired"
+     Begründung: Idiomatische, inklusive Formulierung.
+ MK: hab ich so nirgends gefunden.
+
+[S3 x] "This situation motivated the development … The challenge was evident …" →
+     "This challenge motivated the development …"
+     Begründung: Redundanzreduktion; zwei Sätze zu einem präzisen Satz.
+ MK. nicht gefunden, daher mal abgehakt.
+
+[S4 x] "Hence" übermäßig → Ersetzen durch "Therefore"/"As a result" (stellenweise)
+     Begründung: Stilvariation; "Hence" wirkt in übermäßiger Nutzung hölzern.
+ MK: hab ich mal gelassen, Holz kann man nie genug haben :)
+
+[S5 x] "In this paper we distinguish … Graphic is used as …" →
+     "We distinguish diagrams (formally specified) from graphics (no formal grammar)."
+     Begründung: Parallelstruktur; klare Definition in einem Satz.
+ MK: nicht gefunden
+
+[S6 x] "Markdown is designed to use a minimal set of tags. Hence it is easier understand …" →
+     "Markdown uses a minimal tag set and is easier to parse with screen readers and Braille displays."
+     Begründung: Aktiv, präzise, Infinitiv korrekt.
+
+[S7 x] "layouting" / "layouted" → "layout" (noun) / "laid out" (verb) / "layouted" vermeiden
+     Begründung: "layouting/layouted" ist kein idiomatisches Englisch.
+
+[S8 x] "To ensure accessibility it must …" → "To ensure accessibility, it must …"
+     Begründung: Komma nach einleitendem Infinitivsatz.
+  
+[S9 x] "… which is described in the next chapter." → "… which we describe in Section~\ref{…}."
+     Begründung: Präziser Verweis statt vager "next chapter".
+
+[S10 x] "… are hardly accessible …" → "… are difficult to access …" / "… are often inaccessible …"
+     Begründung: Idiomatische Wortwahl.
+
+[S11 x] "the mostly used tools" → "the most commonly used tools"
+     Begründung: Korrekte Steigerungsform + Adverb.
+
+[S12 x] "This allows to …" → "This allows us to …" / "This makes it possible to …"
+     Begründung: "allow" braucht typischerweise Objekt; Alternative ohne Objekt anbieten.
+ MK: nicht gefunden
+
+[S13 x] "As example" → "As an example" / "For example"
+     Begründung: Artikel setzen.
+
+[S14 x] "important to not only … but also …" → "important not only to … but also to …"
+     Begründung: Parallele Struktur wahren.
+
+[S15 x] "text-to-speach" → "text-to-speech"
+     Begründung: Rechtschreibung korrigieren.
+
+[S16 x] Doppelwort löschen: "the the"
+     Begründung: Tippfehler (Dopplung).
+
+[S17 x] Zusammensetzung/Marke: "user defined LATEXBeamer" → "user-defined LaTeX Beamer"
+     Begründung: Bindestrich + korrekte Marke/Schreibung.
+
+[S18 x] Wortdopplung entfernen: "or or" → "or"
+     Begründung: Tippfehler (Dopplung).
+
+[S19 x] Tippfehler (Caption): "fro" → "for"
+     Begründung: Rechtschreibung korrigieren.
+
+[S20 x] Artikel/Konjunktion: "a circuit an simulation result" → "a circuit and a simulation result"
+     Begründung: "and" statt "an"; Artikel setzen.
+
+[S21] Fußnoten-Satzzeichen/Abstand: "AI8.devices" → "AI [8]."
+     Begründung: Abstand vor Zitat; "devices." entfernen.
+ MK: ???
+
+[S22 x] Komma nach "e.g."/ "i.e.": "e.g. as" → "e.g., as" / "i.e.," einsetzen
+     Begründung: Standardzeichensetzung im Englischen.
+
+[S23 x] Satzanfang groß: "in [5] ..." → "In [5] ..."
+     Begründung: Großschreibung am Satzanfang.
+
+[S24 x] "Acknowledgments" → "Acknowledgements"
+     Begründung: LNCS bevorzugt britische Schreibweise (häufiger in Springer-Bänden).
+
+[S25 x] Idiomatik (Zeitreihen-Passage): "is hardly or not suitable to represent ..." → "is poorly suited to representing ..." / "is not well suited to ..."
+     Begründung: Idiomatische, flüssige Formulierung.
+
+[S26 x] Zusammensetzung: "AI generated description" → "AI-generated description"
+     Begründung: Bindestrich in zusammengesetzten Adjektiven.
+
+
+MK: hier hab ich weitgehend die Finger weg gelassen um nichts zu beschädigen.
+CAPTIONS & CROSS-REFERENCES (sprachlich)
+----------------------------------------
+[Cx1] "Fig. X: very long sentence with multiple clauses …" → zwei Sätze:
+      "Fig. X. <Was ist zu sehen?> <Warum ist es didaktisch relevant?>"
+      Begründung: Lesbarkeit in Captions erhöhen.
+
+[Cx2] "refer to Fig. 3" → "see Fig.~\ref{fig:…}"
+      Begründung: LaTeX-Ref + geschütztes Leerzeichen; einheitlicher Stil.
+
+[Cx3] "Pattern 3" ohne Namen → "Pattern ‘<Name>’ (see Section~\ref{pat:<name>})"
+      Begründung: Präziser, leserfreundlicher Verweis.
+
+[Cx 4] Wortform vereinheitlichen: "Screen shot" → "Screenshot"; "Time-line" → "Timeline"
+      Begründung: Einheitliche Schreibweisen in Bildunterschriften.
+
+
+BIB/TERME (nur sprachliche Aspekte der Einträge)
+------------------------------------------------
+[Bx1] Titel-Capitalization inkonsistent → Einheitlich Satzstil (sentence case) oder Titelstil (title case) je nach Quelle; Eigennamen mit { } schützen.
+      Begründung: Sauberer BibTeX-Output.
+
+[Bx2] http-Links bei vorhandenen DOIs ersetzen: "doi = {...}" bevorzugen; URL optional.
+      Begründung: Stabilere Referenzierung; sprachlich cleaner im Output.
+
+[Bx3] Monat/Ort-Angaben vereinheitlichen (entweder weglassen oder konsistent)
+      Begründung: Einheitlicher Look & Lesbarkeit.
+
+
+CHECKLISTE (Abarbeitung)
+------------------------
+1) GLOBAL anwenden (G1–G13) via Overleaf-Projektsuche/Ersetzen.
+2) ABSTRACT (A1–A4) überarbeiten.
+3) SENTENCE-LEVEL (S1–S26) durchgehen; bei Unsicherheit die eleganteste Formulierung wählen.
+4) CAPTIONS/CROSS-REFS (Cx1–Cx4) finalisieren.
+5) BIB/TERME (Bx1–Bx3) sprachlich glätten.
+6) Letzter Leselauf (10-Minuten-Read) mit Fokus auf:
+   - Subjekt–Verb-Kongruenz
+   - Artikel (a/an/the) korrekt gesetzt
+   - Parallelismen (not only … but also …)
+   - Konsistente Terminologie (BVI, KV map, UML class diagram)

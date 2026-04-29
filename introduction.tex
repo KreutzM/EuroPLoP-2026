@@ -1,0 +1,175 @@
+\section{Introduction}
+
+Germany is currently facing a shortage of more than 50,000 skilled professionals in the fields of mathematics, information technology, natural sciences, and engineering (STEM). Despite numerous initiatives and outreach campaigns, the number of young people completing a STEM degree remains insufficient (todo cite Federal Statistical Office). This situation does not only apply for Germany and can be generalized.
+
+STEM disciplines offer particularly favorable study and career prospects for people with disabilities. These fields place a strong emphasis on technical competencies and are characterized by highly structured content, which can be advantageous for diverse learning needs. Moreover, assistive technologies such as screen readers, speech recognition and output systems, as well as adapted workplace design and flexible work organization enable many people with disabilities to participate effectively in STEM education and employment.
+
+Nevertheless, students with disabilities continue to encounter substantial barriers during their studies. These barriers arise from both structural and organizational conditions within higher education. Technical obstacles include limited accessibility of learning materials, especially those that rely heavily on visual representations or the use of complex graphical software tools. In addition, learning environments that are overly complex, poorly structured, or highly nested can impose a significant cognitive load on students with impairments such as attention-deficit/hyperactivity disorder, autism spectrum conditions, depression, or chronic fatigue.
+
+As a result, learning progress may be slowed for students with disabilities, despite adequate or even high professional qualifications. Importantly, however, many of these barriers can be mitigated through relatively small and targeted measures that substantially improve accessibility. The patterns presented in this paper therefore aim to address key problems and challenges relevant to inclusive learning in STEM education.
+
+\section{The Pattern Collection}
+
+The pattern collection "A Pattern Collection for Generating Accessible Teaching Materials for Blind and Visually Impaired Students in Computer Science and Electrical Engineering" presented at EuroPLoP 2025 comprises five patterns:
+
+
+\patternOneInline provides a general approach for gaining accessibility for \ac{bvi} students. 
+The two patterns \patternTwoInline and \patternThreeInline introduce specialized solutions for different types of graphically represented teaching content. 
+\patternFiveInline can be applied to gain accessibility of different types of graphics. 
+\patternFourInline shows how time series can be made audible and thus accessible to \ac{bvi} people.
+
+
+
+\newpage
+\subsection*{Overview of the Pattern Collection from 2025}
+\vspace{-2em}
+%%%%%%%%%%%%%%%%% 1 1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[!ht]
+    \centering
+    \begin{tabularx}{\textwidth}{|p{0.12\textwidth}|X|}
+    \hline
+         Pattern 1 &  \textsc{Core of Content}  \\ \hline
+         Problem & Graphics are usually not accessible for the visually impaired.  Text within graphics cannot be extracted by assistive tools.  \\ \hline
+         Solution & Extract the core content of teaching materials and represent it in a multi-directionally transformable format.  \\ \hline
+    \end{tabularx}
+\end{table}
+\vspace{-3em}
+%%%%%%%%%%%%%%%%% 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[!ht]
+    \centering
+\begin{tabularx}{\textwidth}{|p{0.12\textwidth}|X|}
+    \hline
+         Pattern 2 & \textsc{Accessibility of Diagrams}  \\ \hline
+         Problem &  Graphical representations of diagrams are not accessible to \ac{bvi} learners. \\ \hline
+         Solution &  Analyze which concepts are represented by the diagram and find a textual representation for them. 
+Implicit information as expressed by the spatial arrangement of diagram elements can be made tangible with haptic interface devices.  \\ \hline
+\end{tabularx}
+\end{table}
+\vspace{-3em}
+%%%%%%%%%%%%%%%%% 3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[!ht]
+    \centering
+\begin{tabularx}{\textwidth}{|p{0.12\textwidth}|X|}
+    \hline
+         Pattern  3 & \textsc{Accessibility of Graphics}  \\ \hline
+         Problem &  Non-textual content—such as images, maps, charts, and diagrams remains largely inaccessible to \ac{bvi} students. This inaccessibility presents a significant barrier to information acquisition and equal participation in educational and professional environments.  \\ \hline
+         Solution &  Provide textual, tactile, or auditory access to information represented visually in graphics.  \\ \hline
+\end{tabularx}
+\end{table}
+\vspace{-3em}
+%%%%%%%%%%%%%%%%% 4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[!ht]
+    \centering
+\begin{tabularx}{\textwidth}{|p{0.12\textwidth}|X|}
+    \hline
+         Pattern 4 & \textsc{Sonification of Time Series}  \\ \hline
+         Problem & Graphical representations of time series  are not accessible for \ac{bvi} students and people in general. A sequential output of the data on Braille lines or by means of text-to-speech is not well suited to represent and convey the time based aspect of the data.   \\ \hline
+         Solution &  Provide sonifications of time series. \\ \hline
+\end{tabularx}
+\end{table}
+\vspace{-3em}
+%%%%%%%%%%%%%%%%% 5 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[!ht]
+    \centering
+\begin{tabularx}{\textwidth}{|p{0.12\textwidth}|X|}
+    \hline
+         Pattern 5 & \textsc{Graphics with Generated Explanation}  \\ \hline
+         Problem &  Although electronic media can be made accessible to \ac{bvi} learners through the use of assistive technologies, this does not usually work for the graphic components embedded in these media. \\ \hline
+         Solution &  Augment visually represented information with a generated and verified textual description.  \\ \hline
+\end{tabularx}
+\end{table}
+
+This collection is extended by the following patterns.
+
+\textcolor{red}{TODO:Graph showing the dependencies between the patterns.}
+
+
+%%%%%%%%%%%%%%%%%%%%%% Paper 2025 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{comment}
+\begin{abstract}
+Graphical representations such as circuit schematics, \ac{kv} maps, or \ac{uml}  diagrams are widely used in computer science and engineering education. However, these visual formats are often inaccessible to \ac{bvi}  students, since they rely on visual perception for conveying both structure and semantics. Existing accessibility guidelines (e.g., WCAG) provide little support for subject-specific materials, leaving educators without actionable workflows for producing equivalent alternatives.
+
+We contribute a collection of five pedagogical design patterns that enable accessible representations of diagrams, graphics, and numerical data in \ac{stem} teaching. The patterns address (1) transformable text-first authoring, (2) accessible diagram generation via textual modeling, (3) tactile and haptic rendering workflows, (4) audio-based representations of time-series and quantitative plots, and (5) human-in-the-loop generation of explanatory descriptions. Each pattern is derived from classroom practice, supplemented by tool recommendations and implementation examples.
+
+Together, the collection provides a structured methodology for producing multi-modal \ac{stem} learning materials that are usable with screen readers, Braille displays, tactile printers, or sonification tools. While developed in the context of computer engineering education, the patterns generalize to other domains that rely on diagrammatic reasoning. 
+
+\keywords{accessibility \and blind and visually impaired (BVI) \and accessible teaching materials \and STEM education \and assistive technologies \and artificial intelligence}
+\end{abstract}
+
+%
+%
+%
+\section{Introduction}
+
+
+
+Four years ago, we welcomed a blind student in the first-semester programming course, where object-oriented programming in Java is taught. In this course, class diagrams are used as graphical representations of classes and their relationships, and are typically developed manually on the blackboard.
+
+This traditional teaching approach, which relies heavily on blackboard drawings, proved unsuitable for the blind student. This situation motivated the development of alternative solutions to ensure that course materials are accessible to blind and visually impaired learners.
+
+In the following year, another blind student began studying computer science and enrolled in the course Technical Informatics. This course introduces electronic and logic circuits, which are first designed on the blackboard and then implemented and tested using simulation tools. \ac{kv} maps, which provide a structured method for simplifying Boolean functions to minimal logical expressions, are also an essential part of the curriculum.
+
+Here too, the challenge was evident: neither blackboard drawings nor graphical circuit diagrams, \ac{kv} maps, or visual simulation tools are accessible to blind and visually impaired students.
+
+In collaboration with colleagues and the students themselves, solutions were developed over the past few years that enabled blind students to access course materials containing graphical content in a barrier-free way. In addition, purely text-based collaboration methods were introduced, allowing blind, visually impaired, and sighted students to work together inclusively.
+
+This paper presents these experiences -- along with insights from other institutions and organizations -- in the form of pedagogical patterns. The aim is to demonstrate that with freely available software tools and relatively little effort, effective solutions can be created to support the inclusion of blind and visually impaired learners.
+
+
+\section{Blind and Visually Impaired (BVI) Students in STEM}
+
+\acf{stem} disciplines are inherently visual. Fields such as computer science, electrical engineering, mathematics, and physics frequently rely on diagrams, schematics, graphs, charts, and other visual representations to convey complex concepts effectively. While these visual tools are valuable for sighted learners, they create significant barriers for students who are blind or have severe visual impairments. Limited access to visual information can hinder participation, comprehension, and achievement, thereby reducing educational and professional opportunities in \ac{stem}  programs and careers \cite{Kamei2021}, \cite{Wentz2014}.
+
+Globally, individuals with visual impairments represent a substantial and growing population. The \ac{who} reports that more than 2.2 billion people live with some form of vision impairment, including 43 million who are blind \cite{WHO2021}. Despite international mandates for inclusive education, such as the \ac{uncrpd} \cite{UNCRPD2006}, students with visual disabilities remain underrepresented in \ac{stem}  disciplines \cite{Supalo2012}. Key barriers include inaccessible instructional materials, limited availability of assistive technologies, insufficient educator training, and inconsistent institutional support \cite{Smith2017}.
+
+Traditional \ac{stem}  education depends heavily on blackboard drawings, printed diagrams, laboratory equipment, and digital visualizations. Graphical representations such as UML class diagrams, electronic circuit schematics, \ac{kv} maps, molecular models, and data plots often lack standardized text-based equivalents. Although screen readers and refreshable Braille displays enable access to textual information, these tools cannot automatically interpret or convey the semantic content of images or diagrams \cite{Stefik2007}. As a result, blind and visually impaired students frequently rely on verbal descriptions from instructors or peers, which may be incomplete or difficult to comprehend without spatial context.
+
+To address these challenges, researchers and educators have developed a range of accessibility strategies. Text-based approaches—for example, PlantUML for software diagrams \cite{PlantUML}, or netlist representations for electronic circuit design \cite{Bienhaus2023}—encode visual information in structured textual formats readable by screen readers. Tactile methods, including embossed graphics, swell paper, and 3D printing, create raised structures that can be explored through touch, enabling spatial understanding \cite{Lazar2017}, \cite{Giudice2018}. Multimodal systems combine auditory, haptic, and kinesthetic feedback to convey complex information dynamically, such as through sonification of graphs or interactive tactile displays \cite{Brock2015}, \cite{Zhao2008}. Universal Design for Learning (UDL) further emphasizes creating materials accessible to all learners, reducing the need for individual adaptations \cite{CAST2018}.
+
+Despite these advances, significant gaps remain. Many \ac{stem}  courses continue to rely on inaccessible materials, and educators may lack the training or resources to implement inclusive practices effectively \cite{Supalo2012}, \cite{Smith2017}. Moreover, tactile and multi-modal solutions often require specialized equipment and may not scale well in typical classroom settings. Addressing these issues requires coordinated efforts among institutions, educators, and technology developers to integrate accessible teaching tools into standard curricula.
+
+The inclusion of blind and visually impaired students in \ac{stem}  is not only a matter of equity but also a driver of innovation. Designing educational environments that accommodate diverse sensory modalities fosters more flexible, creative approaches to teaching and learning that benefit all students \cite{Giudice2018}, \cite{Brock2015}. Continued research, collaboration, and policy support are critical to ensuring that visually impaired learners can participate fully and succeed in the increasingly technology-driven world of \ac{stem}.
+
+
+\section{Used Terms}
+
+Blindness and visual impairment are two related but distinct conditions. Blindness is a complete or nearly complete loss of vision, while visual impairment refers to a decreased ability to see, even with correction.\footnote{\url{https://lifeafterblindness.com/understanding-the-differences-between-blindness-and-visual-impairment/}}
+
+\textbf{Visually impaired}
+"The term ‘visually impaired' is used to indicate blind plus partially sighted
+people together." (Glossary of terms and acronyms in common use by the European Blind Union.)
+
+\textbf{Graphic}
+A graphic is a broad, general term for any visual representation of information, ideas, or data with the purpose of information and communication.
+
+\textbf{Diagram}
+A diagram is a type of graphic that illustrates e.g., the relationships or functions of a system, process, or concept. A diagram is an illustration following formal rules, commonly used in a technical domain. 
+
+Examples from electronics and computer science are Circuit diagrams, State Charts, Flow Charts
+or UML (Unified Modeling Language) diagrams.
+
+\textbf{Drawing}
+A drawing is a manually or digitally created depiction  representing e.g., objects, scenes, or ideas. This paper focuses on  technical illustrations. Examples are technical drawings like blueprints or freehand sketches. 
+
+
+Graphics such as photographs, freehand drawings, and various other illustrative visualizations do not follow a formal specification. 
+
+
+
+\section{Pattern Collection}
+
+\patternOneInline provides a general approach. 
+The three patterns \patternTwoInline and \patternThreeInline introduce specialized solutions for different types of graphically represented teaching content. 
+\patternFiveInline can be applied to gain accessibility of different types of graphics. 
+\patternFourInline shows how time series can be made audible and thus accessible to \ac{bvi} people.
+
+Fig.~\ref{fig:relationships} illustrates the relationships between the five patterns.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{img/Patternrelationsships.pdf}
+    \caption{Pattern relationships}
+    \label{fig:relationships}
+\end{figure}
+\end{comment}

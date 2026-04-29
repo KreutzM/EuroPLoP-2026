@@ -1,0 +1,159 @@
+Super — ich habe deine **finale PDF** gründlich gecheckt und liefere dir ein klares, priorisiertes Ergebnis. Ich gehe **Step by Step** vor:
+
+---
+
+# 0) Kurzfazit
+
+* **Go mit Auflagen**: Inhaltlich stark und gut strukturiert; **einige Blocker** müssen vor Upload behoben werden: **offene Zitate `[...]`**, **kaputtes PlantUML-Listing**, **mehrere Sprach-/Stil-Fehler**, **einige DOI/Referenz-Inkonsistenzen**, **s/w-Tauglichkeit & Fremdmaterial-Hinweise**. 
+
+---
+
+# 1) Springer/LNCS-Compliance (Formales)
+
+**Erfüllt / unkritisch**
+
+* **Umfang** passend (27 Seiten); LNCS-Layout; nummerischer Zitierstil. 
+* **Abstract/Keywords** jetzt LNCS-tauglich (Problem → Contribution → Nutzen). 
+
+**Prüf-/Fix-Punkte**
+
+1. **s/w-Druck**: Mehrere Screenshots/Abbildungen sind farb- bzw. Graustufen-sensibel (z. B. Fig. 9/10/12). **Hatching/Markerformen/Linienstile** ergänzen; wenn möglich **Vektorgrafiken statt Screenshots**. (Springer mailte: Druck in s/w.) 
+2. **Fremdmaterial/Permissions**:
+
+   * Fig. 4 weist explizit eine Website-Quelle aus → **nachzeichnen** (eigene Tabelle) **oder** schriftliche Erlaubnis beilegen. 
+   * Fig. 9 (ProBlind-Screenshot) & Fig. 12 (LTspice) → **Logo/Marke minimieren** bzw. **als eigene Vektor-Beispiele** nachbauen. 
+3. **Running heads**: Bitte sicherstellen, dass `\titlerunning{…}` / `\authorrunning{…}` **kurz** gesetzt sind (im PDF nicht sichtbar, im .tex prüfen).
+4. **Footnote/URL-Form**: In *Used Terms* steht ein nackter Link („1 https://…“) → als **echte Fußnote** setzen: `\footnote{\url{…}}`. 
+5. **Unaufgelöste Literaturhinweise**: In mehreren *Related Work*-Abschnitten stehen **`[?]`-Platzhalter** → **Blocker** (Bib/Keys nachziehen, **bbl** neu bauen). Beispiele in **Pattern 1** und **Pattern 5**. 
+
+---
+
+# 2) Sprache & Rechtschreibung (konkrete Funde → Fix)
+
+> Format: **Original** → **Vorschlag** (Begründung)
+
+* **„are hardly or not at all suitable…“** → **„are often inaccessible…“** (idiomatischer, prägnant). 
+* **„user defined LATEXBeamer template“** → **„user-defined \LaTeX{} Beamer template“** (Bindestrich, Marke, \LaTeX). 
+* **„rendered documents e.g., as PDF documents“** → **„rendered outputs (e.g., PDF)“** (Kürzung, Stil, Komma nach *e.g.*). 
+* **„Markdown … Hence, it is easier to parse …“**: Komma nach „Hence,“ ist da; **okay**. (Stelle insgesamt stimmig.) 
+* **„Listing 1.1: … Fig 4“** → **„Fig.~4“** (Punkt & geschütztes Leerzeichen; LNCS-Konvention). 
+* **„assistance tools“** (mehrfach) → **„assistive tools/technologies“** (Fachsprache). 
+* **„… and 6 shows the generated diagram.“** → **„… and Fig.~\ref{fig:GeneratedUML} shows …“** (kein nacktes „6“, saubere Referenz). 
+* **Satzanfang klein**: *„in [5] …“* → **„In [5] …“** (Großschreibung am Satzanfang). 
+* **Zeitreihen-Stil**: *„… not well suited to representing and convey the time based aspect …“* →
+  **„… not well suited to representing the time-based aspect …“** **oder**
+  **„… not well suited to represent and convey the time-based aspects …“** (Parallelismus, Bindestrich). 
+* **Kleinigkeiten**: vereinzelte fehlende Leerzeichen nach *e.g.,* („e.g., a …“ ist an vielen Stellen korrekt; bitte projektweit kurz prüfen). 
+
+**Kaputtes Listing (Blocker)**
+
+* **PlantUML-Code** enthält zerrissene Tokens: „**+ f i r s tname : S t r ing**“, „**Person −̂− Student**“ etc. → Copy/Paste-Artefakte; **Diagramm wird so nicht reproduzierbar**. **Ersetze** durch eine saubere Version (siehe Patch unten). 
+
+---
+
+# 3) Inhalt & Argumentation
+
+**Sehr gut**
+
+* **Problem → Gap → Contribution** ist im Abstract und in der Einleitung klar strukturiert: Lehr-Kontexte (UML, KV-Map, Schaltungen) → Barriere → Pattern-Lösungen. 
+* **Fünf Patterns** decken den didaktischen Raum ab (Text-first, Diagramme, Grafiken/Taktik, Sonifikation, Generierte Erklärungen). **Beispiele und Toolketten** sind praxisnah. 
+
+**Verbesserung (schnell machbar)**
+
+* **Pattern-Namen konsistent** halten: In Text/Grafik teils „**Core of Content**“, teils *„Transformable Core Content“* in früheren Fassungen. Entscheide dich (ich empfehle **Transformable Core Content** wegen des Transformations-Kerns). 
+* **Pattern 1 „Related Work“**: inhaltlich stimmig, aber aktuell **`[?]`** statt Zitationen → Bib-Keys eintragen (Austin/Seo/Cervone-Sorge/Armano). **Blocker**. 
+* **Pattern 5 „Related Work“**: dito — drei `[…]`-Platzhalter durch **Leotta/Edwards/Jung** ersetzen. **Blocker**. 
+* **Pattern 4**: Sehr gute Beispiele (RC-Schaltung, Highcharts). Ergänze **Mini-Checkliste** (Playback-Speed, Keyboard-Control, „numbers on demand“, Legend Voiceover) als 3–4 Bullets → steigert didaktischen Nutzen. 
+* **Screenshots** (Fig. 9/10/12): Kurz **didaktische Pointe** in Captions ergänzen (Was/Warum/Wie-zugänglich), und s/w-Hinweis (Hatching/Marker). 
+
+---
+
+# 4) Literatur (Kohärenz & DOIs)
+
+**Unaufgelöste Zitate**
+
+* In **Pattern 1 & 5** stehen **`[?]`** → **zwingend** Bib-Keys einsetzen und **bbl** neu bauen. 
+
+**Inkonsistenzen (bitte korrigieren)**
+
+* **Stefik, 2007**: Eintrag sagt *„Proceedings of the 12th International ACM SIGACCESS Conference“*, DOI ist aber **IEEE/ICPC** (*10.1109/ICPC…*) → **Venue/DOI widersprechen sich**; den **korrekten DOI und Venue** nachtragen. 
+* **Supalo, 2012**: Im Text steht *Journal of Chemical Education*, der DOI in der Referenz ist **JSESD** (*10.14448/jsesd…*) → **Journal/DOI mismatch**; richtigstellen. 
+* **Brock/Jouffrais (2015)**: Venue-Bezeichnung (HCI-Konferenz) vs. **ACM-DOI** → bitte Titel/Venue/DOI konsistent machen. 
+
+> Du hast bereits eine **aktualisierte `.bib`** von mir bekommen; nimm diese als Basis und gleiche die o. g. Einträge noch einmal gezielt ab.
+
+---
+
+# 5) Konkrete Patches (ready-to-paste)
+
+**A) PlantUML (Listing 1.2) ersetzen**
+
+```text
+@startuml
+class Person {
+  + firstname : String
+  + surname   : String
+}
+class Student {
+  + matriculationNumber : int
+  + degreeProgram       : String
+}
+Person ^-- Student
+class Lecturer {
+  + title      : String
+  + department : String
+}
+Person ^-- Lecturer
+class Book {
+  + title : String
+  + ISBN  : String
+}
+Student "1" o-- "n" Book
+@enduml
+```
+
+→ Danach **Fig. 6** neu erzeugen; im Text „… and **Fig.~\ref{fig:GeneratedUML}** shows …“ einsetzen. 
+
+**B) Footnote korrigieren (Used Terms)**
+
+```latex
+... visual impairment.\footnote{\url{https://lifeafterblindness.com/understanding-the-differences-between-blindness-and-visual-impairment/}}
+```
+
+
+
+**C) Formulierungen (Auswahl)**
+
+* *„user defined LATEXBeamer“* → *„user-defined \LaTeX{} Beamer“* 
+* *„assistance tools“* → *„assistive tools“* (projektweit) 
+* *„Listing 1.1 … Fig 4“* → *„Fig.~4“* 
+* *„not well suited to representing and convey …“* → *„… representing the time-based aspect …“* 
+
+**D) Offene Zitate ersetzen (Blocker)**
+
+* **Pattern 1**: `\cite{Austin2024PreTeXt,Seo2019RMarkdown,CervoneSorge2019W4A,Armano2018LaTeXPDF}` statt `[…]`. 
+* **Pattern 5**: `\cite{Leotta2023AutoCaptioning,Edwards2023AltTextProcess,Jung2021AltText}` statt `[…]`. 
+
+---
+
+# 6) Priorität (kurz)
+
+**Muss sofort**
+
+1. **`[?]`-Zitate** fixen (P1 & P5) → **Bib/Build** neu. 
+2. **PlantUML-Listing + Fig. 6** korrigieren. 
+3. **Fremdmaterial/Permissions** (Fig. 4/9/12) klären oder nachzeichnen. 
+4. **s/w-Tauglichkeit** aller Figuren (Hatching/Marker). 
+5. **Referenz-Inkonsistenzen** (Stefik 2007, Supalo 2012, Brock 2015) bereinigen. 
+
+**Sollte**
+
+* Sprachfeinschliff (assistive vs. assistance; *e.g.,*-Komma; Fig.~) & Captions mit **didaktischer Pointe + A11y-Hinweis**. 
+
+**Kann**
+
+* Mini-Checklisten am Ende von Pattern 3/4 (Designregeln Taktik / Sonifikation-Usability). 
+
+---
+
+Wenn du willst, baue ich dir jetzt eine **Search&Replace-Patchliste** (Overleaf-freundlich) und markiere die **konkreten Zeilen** in deinen `.tex`-Dateien, damit du die 5 Blocker in <15 Min. schließen kannst.

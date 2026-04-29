@@ -1,0 +1,262 @@
+[A1] "hardly or not at all suitable"
+  File: main.tex  Line: 129
+  Original: These graphical representations are hardly or not at all suitable for \ac{bvi} students to learn these topics.
+  Verbesserung: are often inaccessible
+  Begründung: Knapper & idiomatisch.
+
+[A2] "This paper presents"
+  File: main.tex  Line: 153
+  Original: This paper presents these experiences -- along with insights from other institutions and organizations -- in the form of pedagogical patterns. The aim is to ...
+  Verbesserung: We contribute ...
+  Begründung: Expliziter Beitragssatz.
+
+[A3] "easier understand"
+  File: 1_Pattern.tex  Line: 98
+  Original: Markdown is designed to use a minimal set of tags. Hence it is easier understand when access is done via text-to-speach or is read on a Braille display.
+  Verbesserung: easier to parse
+  Begründung: Infinitiv mit „to“.
+
+[A4] "accomplish visual represented information..."
+  File: 5_Pattern.tex  Line: 20
+  Original: Accomplish visual represented information with a generated an checked textual description.
+  Verbesserung: augment visually represented information ... generated and human-checked
+  Begründung: Korrekte Wortwahl/Grammatik.
+
+[Bx2] http-Links statt DOI (in .bib)
+  File: literature.bib  Line: 195
+  Original: url       = {http://udlguidelines.cast.org}
+  Verbesserung: Prefer DOI link in doi = {...}
+  Begründung: Stabile Referenzen.
+
+[Bx2] http-Links statt DOI (in .bib)
+  File: literature.bib  Line: 321
+  Original: url = {http://www.amazon.fr/exec/obidos/ASIN/0195019199/citeulike04-21},
+  Verbesserung: Prefer DOI link in doi = {...}
+  Begründung: Stabile Referenzen.
+
+[Bx2] http-Links statt DOI (in .bib)
+  File: literature.bib  Line: 336
+  Original: url={http://dx.doi.org/10.1145/3706598.3714132},
+  Verbesserung: Prefer DOI link in doi = {...}
+  Begründung: Stabile Referenzen.
+
+[Bx2] http-Links statt DOI (in .bib)
+  File: literature.bib  Line: 456
+  Original: url={http://dx.doi.org/10.11648/j.ajaa.20210904.11},
+  Verbesserung: Prefer DOI link in doi = {...}
+  Begründung: Stabile Referenzen.
+
+[Cx3] "Pattern 3" ohne Namen
+  File: special_commands.tex  Line: 18
+  Original: \patternname{Pattern 3: Accessibility of Graphics}
+  Verbesserung: Pattern ‘<Name>’ (see Section~\ref{...})
+  Begründung: Präziser Verweis.
+
+[G10] Satzanfang klein nach Punkt: ". these"
+  File: 1_Pattern.tex  Line: 38
+  Original: In case of diagrams that adhere to a formal specification, such specifications typically define formats for textual representation. These structured formats ...
+  Verbesserung: ... These ...
+  Begründung: Satzanfang groß.
+
+[G10] Satzanfang klein nach Punkt: ". these"
+  File: 2_Pattern.tex  Line: 29
+  Original: Most software modeling tools use  a textual storage format. these formats are often not designed for humans but are used for data exchange. One example is \a...
+  Verbesserung: ... These ...
+  Begründung: Satzanfang groß.
+
+[G10] Satzanfang klein nach Punkt: ". these"
+  File: 3_Pattern.tex  Line: 7
+  Original: In educational contexts, graphical representations are extensively employed in teaching materials at both school and university levels. These include diagram...
+  Verbesserung: ... These ...
+  Begründung: Satzanfang groß.
+
+[G10] Satzanfang klein nach Punkt: ". these"
+  File: 3_Pattern.tex  Line: 52
+  Original: Emerging \ac{ai} technologies are increasingly capable of interpreting and describing graphics. These advancements offer promising solutions for making visua...
+  Verbesserung: ... These ...
+  Begründung: Satzanfang groß.
+
+[G10] Satzanfang klein nach Punkt: ". these"
+  File: 3_Pattern.tex  Line: 58
+  Original: Electronic tactile displays, such as 2D Braille displays, provide dynamic tactile feedback. These devices can render static or even animated graphics in real...
+  Verbesserung: ... These ...
+  Begründung: Satzanfang groß.
+
+[G10 x] Satzanfang klein nach Punkt: ". these"
+  File: 5_Pattern.tex  Line: 30
+  Original: Emerging artificial intelligence technologies are increasingly capable of interpreting and describing graphics. These advancements offer promising solutions ...
+  Verbesserung: ... These ...
+  Begründung: Satzanfang groß.
+
+[G11 x] "braille" klein
+  File: 2_Pattern.tex  Line: 34
+  Original: \ac{bvi} learners can have the textual description read aloud using text-to-speech, use screen readers or read on braille lines.
+  Verbesserung: Braille
+  Begründung: Eigenname groß.
+
+[G12 x] "Screen shot"
+  File: 3_Pattern.tex  Line: 87
+  Original: \caption{Screen shot from the \textit{PunktBilder} application (Source: BliZ)}
+  Verbesserung: Screenshot
+  Begründung: Zusammenschreibung.
+
+[G13 x] "Time-line"
+  File: 5_Pattern.tex  Line: 69
+  Original: \caption{Screenshot of Circuit and Time-line Graph}
+  Verbesserung: Timeline
+  Begründung: Zusammenschreibung.
+
+[G3 x] Bindestrich: "barrier free"
+  File: main.tex  Line: 134
+  Original: \keywords{accessibility \and blind and visually impaired (BVI)  \and barrier free course material \and STEM education \and assistive technologies \and  artif...
+  Verbesserung: barrier-free
+  Begründung: Attributives Adjektiv mit Bindestrich.
+
+[G5] Denglisch: "Klassendiagramm"/"Instanziierung"
+  File: 5_Pattern.tex  Line: 38
+  Original: Fig.~\ref{fig:instanziierung} shows a .png picture illustrating the concept of instantiation. The arrow follows the UML specification.
+  Verbesserung: UML class diagram / instantiation
+  Begründung: Englische Fachtermini verwenden (im EN-Paper).
+
+[G5] Denglisch: "Klassendiagramm"/"Instanziierung"
+  File: 5_Pattern.tex  Line: 42
+  Original: \fbox{\includegraphics[width=0.5\linewidth]{img/instanziierung.png}}
+  Verbesserung: UML class diagram / instantiation
+  Begründung: Englische Fachtermini verwenden (im EN-Paper).
+
+[G5] Denglisch: "Klassendiagramm"/"Instanziierung"
+  File: 5_Pattern.tex  Line: 44
+  Original: \label{fig:instanziierung}
+  Verbesserung: UML class diagram / instantiation
+  Begründung: Englische Fachtermini verwenden (im EN-Paper).
+
+[G5] Denglisch: "Klassendiagramm"/"Instanziierung"
+  File: __Literatur-Recherche.tex  Line: 240
+  Original: \emph{Beschreibung:} Nutzerstudie mit taktil/akustischer Exploration von UML-Klassendiagrammen (Touchscreen + VoiceOver).\\
+  Verbesserung: UML class diagram / instantiation
+  Begründung: Englische Fachtermini verwenden (im EN-Paper).
+
+[G7 ?] Tool-Branding "chatGPT"
+  File: 3_Pattern.tex  Line: 73
+  Original: Prompt for chatGPT: "write a alt-text for a html web site describing this diagram". Answer:
+  Verbesserung: an LLM-based system
+  Begründung: Neutrale, langlebige Formulierung.
+
+[G7 ?] Tool-Branding "chatGPT"
+  File: 5_Pattern.tex  Line: 47
+  Original: Here a generated description of this picture (chatGPT):
+  Verbesserung: an LLM-based system
+  Begründung: Neutrale, langlebige Formulierung.
+
+[G7 ?] Tool-Branding "chatGPT"
+  File: 5_Pattern.tex  Line: 74
+  Original: Answer from chatGPT:
+  Verbesserung: an LLM-based system
+  Begründung: Neutrale, langlebige Formulierung.
+
+[G9 x] UML Erstnennung klein: "unified modeling language UML"
+  File: 2_Pattern.tex  Line: 8
+  Original: In computer science, the diagrams of the unified modeling language UML are widely used. There are specifications for \ac{uml}. Formats are defined for the da...
+  Verbesserung: Unified Modeling Language (UML)
+  Begründung: Eigenname groß + Akronym in Klammern.
+
+-> acronym 
+
+
+[S15 x] "text-to-speach"
+  File: 1_Pattern.tex  Line: 98
+  Original: Markdown is designed to use a minimal set of tags. Hence it is easier understand when access is done via text-to-speach or is read on a Braille display.
+  Verbesserung: text-to-speech
+  Begründung: Rechtschreibung.
+
+[S16 x] "the the"
+  File: 1_Pattern.tex  Line: 122
+  Original: This markdown is then converted into a slide in PDF using Pandoc with a user defined \LaTeX Beamer template accomplishing the the CI specifications of the un...
+  Verbesserung: the
+  Begründung: Dopplung entfernen.
+
+[S18 x] "or or"
+  File: 4_Pattern.tex  Line: 27
+  Original: amplitude, rate of change, loudness or or stereo position etc.
+  Verbesserung: or
+  Begründung: Dopplung entfernen.
+
+[S19 x] "fro" (für "for")
+  File: 3_Pattern.tex  Line: 102
+  Original: \caption{Dot pattern fro the logo of the THM (left), converted with \textit{PunktBilder} for a 2D Braille display (right)}
+  Verbesserung: for
+  Begründung: Tippfehler.
+
+[S20 x] "a circuit an simulation result"
+  File: 5_Pattern.tex  Line: 60
+  Original: Simulation of electronic circuits is an important topic in technical electronics and technical informatics. Fig.~\ref{fig:rc} shows a screenshot of a circuit...
+  Verbesserung: a circuit and a simulation result
+  Begründung: Konjunktion 'and'.
+
+[S22 x] Komma nach e.g./i.e.
+  File: 1_Pattern.tex  Line: 100
+  Original: Tools like Pandoc\footnote{\url{https://pandoc.org/}} can convert markdown text in a variety of formats like PDF, \ac{html} and office formats. Hence it is p...
+  Verbesserung: e.g., / i.e.,
+  Begründung: Komma nach Abkürzung.
+
+[S22 x] Komma nach e.g./i.e.
+  File: main.tex  Line: 183
+  Original: A diagram is a type of graphic that illustrates e.g. the relationships or functions of a system, process, or concept. A diagram is an illustration following ...
+  Verbesserung: e.g., / i.e.,
+  Begründung: Komma nach Abkürzung.
+
+[S22 x] Komma nach e.g./i.e.
+  File: main.tex  Line: 189
+  Original: A drawing is a manually or digitally created depiction  representing e.g. objects, scenes, or ideas. This paper focuses on  technical illustrations. Examples...
+  Verbesserung: e.g., / i.e.,
+  Begründung: Komma nach Abkürzung.
+
+[S24 x] "Acknowledgments"
+  File: main.tex  Line: 244
+  Original: \subsection*{Acknowledgments}
+  Verbesserung: Acknowledgements
+  Begründung: Britische Schreibweise (Springer häufig).
+
+[S25 x] "is hardly or not suitable to represent"
+  File: 4_Pattern.tex  Line: 13
+  Original: Graphical representations of time series  are not accessible for \ac{bvi} students and people in general. A sequential output of the data on Braille lines or...
+  Verbesserung: is not well suited to representing
+  Begründung: Idiomatische Formulierung.
+
+[S26 x] "AI generated description"
+  File: 5_Pattern.tex  Line: 64
+  Original: An AI generated description of this figure can be improved if the context is given in the prompt: "explain this figure in the context of technical electronics"
+  Verbesserung: AI-generated description
+  Begründung: Bindestrich in zusammengesetztem Adj.
+
+[S4 x] Übernutzung "Hence"
+  File: 1_Pattern.tex  Line: 98
+  Original: Markdown is designed to use a minimal set of tags. Hence it is easier understand when access is done via text-to-speach or is read on a Braille display.
+  Verbesserung: Therefore/As a result
+  Begründung: Stilvariation.
+
+[S4 x] Übernutzung "Hence"
+  File: 1_Pattern.tex  Line: 100
+  Original: Tools like Pandoc\footnote{\url{https://pandoc.org/}} can convert markdown text in a variety of formats like PDF, \ac{html} and office formats. Hence it is p...
+  Verbesserung: Therefore/As a result
+  Begründung: Stilvariation.
+
+[S6 x] "Hence it is easier understand"
+  File: 1_Pattern.tex  Line: 98
+  Original: Markdown is designed to use a minimal set of tags. Hence it is easier understand when access is done via text-to-speach or is read on a Braille display.
+  Verbesserung: Hence, it is easier to parse ...
+  Begründung: Infinitiv + Komma.
+
+[T2 x] \titlerunning vorhanden
+  File: backup.tex  Line: 64
+  Original: \titlerunning{A Pattern Collection for Accessible Teaching in Computer Science}  % abbreviated title (for running head)
+  Verbesserung: Kurzer Running Title
+  Begründung: LNCS Kopfzeilen kurz halten.
+
+[T2 x] \titlerunning vorhanden
+  File: main.tex  Line: 92
+  Original: \titlerunning{A Pattern Collection for Generating Accessible Teaching Materials}
+  Verbesserung: Kurzer Running Title
+  Begründung: LNCS Kopfzeilen kurz halten.
+
+-> \titlerunning{Accessible Teaching Materials}

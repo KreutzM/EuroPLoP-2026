@@ -1,0 +1,273 @@
+Podcast-like Audios​
+
+context
+
+Studierende mit Beeinträchtigungen wie Blinde und sehbehinderte, ADHS, Legastenie, Autismus
+
+studierende und wissenschaftlich Arbeitende
+
+problem 
+
+Beeinträchtigungen wie ADHS oder Legastenie schränken die Fähigkeiten ein, längere Texte konzentriert zu lesen  
+Grafische Elemente sind  nicht barrierefrei
+
+blinde und sehbehinderte können ai wie chatgpt nutzen um sich barrierefreie texte generieren zu lassen. dies ist jeweils ein individueller aufwand. 
+
+Längere  Dokumente oder Materialsammlungen sind aufwändig zu lesen. Komplexe Zusammenhänge muss man sich erarbeiten.
+
+lösung
+
+Nutze eine KI als eine Art Texttransformator, die darauf spezialisiert ist, texte in audio oder video formaten zusammenzufassen, ohne dabei zu halluzinieren.
+
+Beneriere Audio-zusammenfassungen auf basis  der Materialsammlungen von Lehrveranstaltungen oder von umfangreicheren  Paper oder Lehrbüchern.
+
+Konsequenzen
+Vorteile:
+    - Barrierefrei für Blinde und Sehbehindere
+    - zeitlich kürzere Zusammenfassungen sind für Menschen mit ADHS besser geeignet
+    - Die Zusammenfassungen von Komplexen Texte sind für legasteniker einfacher zugänglich 
+
+Nachteile:
+    - Umgang mit solchen Tools ist zu erlernen
+    - ggf. sind die Inhalte zu überprüfen
+
+beispiel
+
+https://notebooklm.google.com/
+
+- TI Beispiel z.B. Zusammenfassungen einzelner Theme aus dem Buch "Grundlagen der Techn. Inf." 
+- EuroPLoP Paper 2025
+- Jusines Arbeit
+- ...
+
+Related Work
+
+
+====== - Entwurf für Pattern 7
+# Pattern 7: Podcast-like Audios (v2)
+
+*(gemeint: NotebookLM – „Audio Overview“ / podcastartige Audio-Zusammenfassungen)*
+
+## Intent
+
+* Reduziere die Zugangs- und Navigationslast beim Konsum **umfangreicher Kursmaterialien** durch **strukturierte, podcastartige Audio-Zusammenfassungen**, die aus kuratierten Quellen erzeugt werden.
+
+## Context
+
+* STEM/CS/Technik-Lehrveranstaltungen mit vielen **textlastigen** Materialien (Skript, Papers, Aufgabenblätter, Protokolle) und hoher Informationsdichte.
+* Primäre Zielgruppe: **BVI (blind/low-vision)**, die auf Screenreader/Braille und lineare Navigation angewiesen sind.
+* Sekundäre Profiteur:innen (optional nennen, nicht als Kernproblem):
+
+  * **Dyslexie** (Leselast),
+  * **ADHS** (Einstieg, Dranbleiben, Wiederholen),
+  * **Autismus** (Überblick/Struktur; je nach Präferenz).
+* Auch nutzbar für **wissenschaftliches Arbeiten** (first pass durch Papers/Reports), aber Pattern-Fokus bleibt Lehre.
+
+## Problem
+
+* Lange Dokumente/Materialsammlungen sind für BVI zeitaufwändig zu konsumieren (Navigation, Kontext halten, Wiederfinden) → höherer Zeitbedarf, späterer Einstieg.
+* Viele Studierende (insb. Dyslexie/ADHS) können lange Texte nur schwer **konzentriert** lesen bzw. verlieren schnell den Überblick.
+* Ad-hoc-Nutzung generischer KI (z.B. Chatbots) erfordert jedes Mal **Kontextaufbau und Prompting** (individueller Aufwand; nicht skalierbar).
+* Ziel: schneller, verlässlicher **Überblick („first pass“) + Wiederholung**, ohne dass Studierende jedes Mal das Zugänglichmachen selbst „bezahlen“.
+
+## Forces
+
+* **Genauigkeit vs. Aufwand**: Audio-Zusammenfassungen sind nützlich, können aber Fehler enthalten → QA/Disclaimers nötig.
+* **Audio hilft nicht allen**: Einige (ADHS/Autismus) können Audio als ablenkend oder sensorisch unangenehm erleben → optional anbieten + Transkript.
+* **Didaktische Integrität/Assessment**: Gefahr, dass Audio als „Short-cut“ statt Lernhilfe genutzt wird.
+* **Quellenqualität**: Funktioniert gut nur mit maschinenlesbaren, strukturierten Quellen (kein Scan-PDF, Code nicht als Bild).
+* **IP/Privacy**: Kursmaterialien/Studentenbeiträge als Quellen; institutionelle Policies.
+* **Barrierearme Distribution**: Audio braucht Kapitel/Timecodes + Transkript; LMS muss zugänglich sein.
+
+## Solution
+
+* Nutze NotebookLM „Audio Overview“, um aus **kuratierten Kursquellen** strukturierte, podcastartige Audio-Zusammenfassungen zu erzeugen.
+* Gestalte die Zusammenfassung *speech-first*:
+
+  * klare Gliederung (Kapitel),
+  * Lernziele zuerst,
+  * Begriffe/Notation definieren,
+  * 1–2 Mini-Beispiele,
+  * typische Missverständnisse,
+  * kurze Checkliste „Was du können solltest“.
+* Liefere das Audio stets mit:
+
+  * **Transkript** (Text),
+  * **Kapitelübersicht** (Timecodes),
+  * Hinweistext: „Lernhilfe; kann Fehler enthalten; Originalquellen bleiben maßgeblich.“
+* Positioniere das Pattern als Ergänzung zu Pattern 6 („AI Tutor“):
+
+  * Pattern 7 = Orientierung & Wiederholung;
+  * Pattern 6 (und andere) = präzise Transformation/Erklärung visueller Artefakte.
+
+## Implementation (wiederholbarer Workflow)
+
+1. **Quellenpaket pro Woche/Topic** erstellen:
+
+   * Skriptabschnitt + Folien-Export (zugänglich) + Aufgabenblatt + ggf. Glossar.
+2. **Kurs-Notebook** in NotebookLM pflegen:
+
+   * Quellen versionieren (Woche/Datum), damit Audio reproduzierbar ist.
+3. **Prompt-/Policy-Template** verwenden (kurz, konsistent):
+
+   * „Struktur: Lernziele → Begriffe → Beispiel → Missverständnisse → Checkliste → Next reading.“
+   * „Keine rein räumlichen Verweise (‘links/rechts’), konsistente Begriffe, präzise Notation.“
+   * „Kennzeichne Unsicherheit/fehlende Quellen explizit.“
+4. **Output veröffentlichen**:
+
+   * Audio + Transkript + Kapitel/Timecodes im LMS.
+5. **Qualitätssicherung**:
+
+   * Stichprobe (Dozent/Tutor) gegen offensichtliche Fehler; Feedback-Kanal für Studierende.
+
+## Examples
+
+### Example 7.1 (Technische Informatik 1): Boolean Operations & Truth Tables
+
+* Quellen: Markdown-Kerninhalt + gerenderte Folien (wie im EuroPLoP-2025-Setup) + Übungsblatt.
+* Output: Audio Overview mit Lernzielen, Begriffen, Mini-Beispiel, typischen Fehlern.
+* Nutzen: BVI bekommt schnellen Einstieg; Dyslexie/ADHS profitieren sekundär.
+
+### Example 7.2 (Technische Informatik 1): KV-Maps / Minimierung
+
+* Quellen: textbasierte KV-Darstellung + Aufgabenblatt.
+* Output: Audio Overview als „first pass“ (Intuition, Vorgehen, Fehlerquellen).
+* Abgrenzung: Für die KV-Map selbst sind zusätzlich Pattern 6 / text-first Artefakte nötig.
+
+### Example 7.3 (Technische Informatik 1): Simulation & Interpretation
+
+* Quellen: text-first Simulation Output (Messwerte, .measure/.print) + kurze Erklärung.
+* Output: Audio Overview: „Was bedeuten die Messgrößen? Welche Parameter sind relevant?“
+
+## Consequences
+
+### Benefits
+
+* Reduziert Navigations- und Leselast; schneller Überblick („first pass“).
+* Bessere Vorbereitung auf Übungen und Diskussionen; mehr Autonomie.
+* Audio als zusätzlicher Kanal hilft vielen (BVI/Dyslexie/ADHS) beim Einstieg und Wiederholen.
+* Skalierbar für Lehrende: standardisierbare Produktion pro Woche.
+
+### Liabilities / Risks
+
+* **Halluzinationen/Fehler** möglich → Disclaimers + Stichprobencheck.
+* Overreliance: Studierende hören nur Audio statt Originalquellen.
+* Nicht für alle geeignet: Audio kann ablenken/überfordern → Transkript + optional.
+* IP/Privacy- und Policy-Fragen.
+
+## Related Work (Kurzanknüpfung)
+
+* Strukturierte Bildungs-Podcasts für blinde Nutzer:innen; speech-first Summarization.
+* AI-gestützte Accessibility in STEM (Navigation, VQA, automatische Transformation).
+* Erste Evaluationen von NotebookLM Audio Overviews (Nutzen + Risikoprofil).
+
+## Known Uses / Variants (optional)
+
+* Variant: Zusätzlich Video Overview + Transkript für Studierende mit visueller Präferenz.
+* Variant: Kürzere „Exam revision“ Overviews (10–12 Minuten) in Prüfungsphase.
+
+## Anti-Patterns / Pitfalls (optional)
+
+* Audio ohne Transkript/Chapters bereitstellen → schwer navigierbar.
+* Audio als Ersatz für Originalquellen verkaufen → Overreliance.
+* Quellen als Scan-PDF/Code-Screenshots → schlechte Grounding-Qualität.
+
+
+
+====== - Literatur zum Thema ---
+
+# Related Work (Pattern 7: Podcast-like Audios / NotebookLM Audio Overview)
+
+## Zielsetzung des Related-Work-Abschnitts
+
+Dieses Pattern nutzt *podcast-artige Audio-Zusammenfassungen* (NotebookLM „Audio Overview“) als ergänzenden Zugangs- und Lernkanal für Kursmaterialien in STEM/CS/Technik. Related Work wird daher entlang von vier Strängen strukturiert:
+
+1. **Audio/Podcasts als Lernmedium für blinde und sehbehinderte Personen (BVI)**,
+2. **Text→Speech / Speech-Summarization als technische Grundlage**,
+3. **KI-gestützte Zugänglichkeit für BVI in Hochschul-/STEM-Kontexten**,
+4. **Empirische Arbeiten zu NotebookLM Audio Overviews (Nutzen, Risiken, Qualität)**.
+
+---
+
+## 1. Educational Audio/Podcasts für BVI
+
+Frühe und wiederholt bestätigte Befunde zeigen, dass strukturierte Audioformate als Lernressource für blinde Nutzer:innen hilfreich sein können – vor allem dann, wenn sie **gut segmentiert** sind (Kapitel/Navigation) und **klaren Lernzielen** folgen. In diesem Kontext werden Podcasts nicht nur als „Ersatz für Lesen“ betrachtet, sondern als eigenes Medium mit spezifischen Anforderungen: lineare Darstellung, klare Begriffsdefinitionen, Wiederholungen an Schlüsselstellen sowie redundante Strukturmarker (z. B. „Jetzt folgt…“).
+
+Für Pattern 7 ist dieser Strang wichtig, weil er begründet, warum audio-basierte Lernartefakte nicht bloß ein „Nice-to-have“ sind, sondern reale Barrieren (Orientierung, Überblick, Einstieg) für BVI reduzieren können – **unter der Bedingung**, dass Navigation und Struktur mitgedacht werden (z. B. Kapitel/Timecodes, Begleit-Transkript). [4]
+
+---
+
+## 2. Text-to-Speech Summarization / Speech Summarization
+
+Während klassische Textzusammenfassungen auf visuelles Lesen optimiert sind, stellt *Speech Summarization* zusätzliche Anforderungen:
+
+* Inhalte müssen so umformuliert werden, dass sie auditiv gut verarbeitet werden können (weniger dichte Satzstrukturen, explizite Referenzen, Wiederholung von Entitäten/Begriffen),
+* die **Makrostruktur** (Gliederung, Übergänge) wird wichtiger als bei Text,
+* Fehler bzw. Unsicherheiten müssen im Audioformat besonders klar markiert werden, weil Korrekturen weniger „scannbar“ sind.
+
+Frühe Arbeiten zu „Text-to-Speech Summarization“ argumentieren deshalb für eine gezielte Anpassung von Summaries an das Ausgabemedium Sprache. Dieser Strang liefert die theoretische/technische Basis für Pattern 7: NotebookLM Audio Overview sollte nicht als bloßes „TTS einer Textsummary“ verstanden werden, sondern als eigenständige *speech-first* Repräsentation, die explizit strukturiert und kursnah gerahmt werden muss. [5]
+
+---
+
+## 3. KI-gestützte Accessibility für BVI in STEM/HE
+
+Neuere Accessibility-Forschung in HCI/ASSETS/OzCHI adressiert, dass BVI-Studierende in STEM besonders an **visuellen Lehrartefakten** scheitern (Diagramme, Plots, Schaltpläne, Formeln, GUI-lastige Tools) und dass Assistive Technologien allein (Screenreader/Braille) häufig nicht ausreichen, um solche Inhalte effizient zu erschließen.
+
+Arbeiten zu AI-unterstützter Navigation und „Visual Question Answering“ für BVI bei Vorlesungsvideos zeigen, dass KI insbesondere bei **Orientierung, Navigation und inhaltlicher Rückfrage** helfen kann (z. B. „Wo wurde das definiert?“ „Was zeigt die Grafik?“), vorausgesetzt es gibt geeignete Strukturen und Qualitätskontrollen. [7]
+
+Komplementär dazu zeigen Ansätze zur automatisierten Erzeugung zugänglicher STEM-Materialien, dass die Transformation visueller STEM-Artefakte in **text-first** oder anderweitig zugängliche Repräsentationen (z. B. strukturierte Beschreibungen, alternative Darstellungen) als eigenständige Designaufgabe verstanden werden muss. [8]
+
+Systematische Übersichten zur Diagrammzugänglichkeit verorten die Schwierigkeit in der Vielfalt von Diagrammtypen und der Notwendigkeit, sowohl **syntaktische Beschreibung** (Elemente, Achsen, Relationen) als auch **semantische Interpretation** (was ist die Aussage?) abzudecken. Diese Erkenntnisse sind direkt anschlussfähig an Pattern 7, weil Audio Overviews primär die **semantische Orientierung** liefern, während für viele Diagrammtypen weiterhin ergänzende, präzisere Alternativen (z. B. strukturierte Textbeschreibung, taktile Grafik) nötig sind. [9]
+
+Schließlich existiert Forschung zur generellen Accessibility wissenschaftlicher Dokumente, die Problemfelder wie Strukturmetadaten, semantische Markup-Sprachen, Abbildungsbeschreibungen und maschinenlesbare Repräsentationen adressiert. Dieses Feld ist relevant, weil Pattern 7 stark davon abhängt, dass Quellen **gut maschinenlesbar** und strukturiert vorliegen (nicht nur Scans). [6]
+
+---
+
+## 4. NotebookLM Audio Overviews: Nutzen, Qualität, Risiken
+
+NotebookLM hat mit „Audio Overviews“ ein Format popularisiert, das Zusammenfassungen als dialogische, podcastartige Audioausgabe produziert. Erste empirische Arbeiten untersuchen die Qualität, Nützlichkeit und Risiken dieser Overviews, u. a. im Kontext wissenschaftlicher Papers.
+
+* Studien, die NotebookLM Audio Overviews für wissenschaftliche Literatur evaluieren, berichten typischerweise, dass Audio Overviews den **Einstieg** erleichtern und eine schnelle **Orientierung** schaffen können – insbesondere für das „first pass“-Verständnis. [10]
+* In domänenspezifischen Communities (z. B. Planetary Science) wird untersucht, wie nützlich Audio Overviews für Forscher:innen sind, und welche Limitationen auftreten (Auslassungen, falsche Gewichtung, gelegentliche Ungenauigkeit). [11]
+* Weitere Arbeiten diskutieren das Format aus medien- und kulturwissenschaftlicher Perspektive (z. B. synthetische Intimität), was für Pattern 7 relevant sein kann, weil Tonalität und Gesprächsform die Wahrnehmung von Autorität/Vertrauen beeinflussen und dadurch Overreliance begünstigen können. [12]
+
+Für Pattern 7 folgt daraus: Audio Overviews sind als *Orientierungs- und Wiederholungsartefakt* plausibel, müssen aber durch klare **Disclaimers**, **Transkripte**, **Kapitelstruktur** und (mindestens stichprobenartige) **Qualitätssicherung** flankiert werden, insbesondere wenn sie im Hochschulkontext und in Prüfungsnähe verwendet werden.
+
+---
+
+## Einordnung zu Pattern 7
+
+Die oben genannten Stränge stützen Pattern 7 in zwei Punkten:
+
+1. **Didaktische Plausibilität**: Strukturierte Audioressourcen helfen BVI beim Einstieg/Überblick und senken die Navigationslast. [4]
+2. **Technische/risikobewusste Umsetzung**: Speech-first Summarization und KI-Accessibility-Forschung zeigen Anforderungen (Struktur, Fehlerkennzeichnung, Ergänzungsartefakte) sowie Grenzen (Diagramme/Notation). [5], [7]–[9]
+3. **Produkt-spezifische Evidenz**: Erste NotebookLM-Studien sprechen für Nutzen als „first pass“, aber unterstreichen das Risikoprofil (Ungenauigkeiten/Framing). [10]–[12]
+
+---
+
+# References (Zusatzquellen, Pattern 7)
+
+[1] T. Wellhausen, “How to write a pattern? A rough guide for first-time pattern authors,” 2011.
+
+[2] N. B. Harrison, “Advanced Pattern Writing,” 2004.
+
+[3] Hillside Group, “A Pattern Language for Pattern Writing,” Web resource.
+
+[4] M. C. Buzzi, M. Buzzi, B. Leporini, and G. Mori, “Educational Impact of Structured Podcasts on Blind Users,” in *Proc. HCI International (HCII)*, 2011.
+
+[5] K. McKeown, J. Hirschberg, M. Galley, and S. Maskey, “From Text to Speech Summarization,” 2005.
+
+[6] L. L. Wang, I. Cachola, et al., “Improving the accessibility of scientific documents,” arXiv:2105.00076, 2021.
+
+[7] K. Anderer, K. Müller, L. Strobel, M. Wölfel, J. Niehues, and K. Gerling, “Making Lecture Videos Accessible for Students who are Blind or have Low Vision through AI-Assisted Navigation and Visual Question Answering,” in *Proc. ASSETS ’25*, 2025, doi: 10.1145/3663547.3746349.
+
+[8] H. P. Palani, R. Adnin, and S. Nagar, “Kanak: Automating the Generation of Accessible STEM Materials for Blind and Low-vision Students,” in *Proc. OzCHI ’25*, 2025, doi: 10.1145/3764687.3764694.
+
+[9] M. J. R. Torres and R. Barwaldt, “Approaches for diagrams accessibility for blind people: a systematic review,” in *Proc. IEEE Frontiers in Education Conf. (FIE)*, 2019, pp. 1–7, doi: 10.1109/FIE43999.2019.9028522.
+
+[10] F. Ciuk Olsson, “Papers into Podcasts: Evaluating NotebookLM’s Audio Overviews of Scientific Articles,” 2025.
+
+[11] I. T. W. Flynn and S. I. Peters, “The Usefulness of NotebookLM’s Audio Overview for Planetary Scientists,” *Perspectives of Earth and Space Scientists*, vol. 6, 2025, e2025CN000282, doi: 10.1029/2025CN000282.
+
+[12] J. W. Rettberg, “AI-generated podcasts: Synthetic Intimacy and Cultural Translation in NotebookLM’s Audio Overviews,” arXiv:2511.08654, 2025.
+

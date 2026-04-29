@@ -1,0 +1,61 @@
+EuroPLoP 2025 – Master ToDo (Content + Submission)
+====================================================
+Deadline: 30.09.2025  |  Proof window: 08.–15.10.2025 (72h response)
+
+A) CONTENT (high impact)
+------------------------
+- [ ] ABSTRACT neu schreiben (Problem → Gap → Contribution → Evidence/Results → Implications)
+      - Enthält einen klaren Beitragssatz: "We contribute a pattern collection ..." (Pattern-Format explizit nennen)
+- [X] RELATED WORK: alle TODO-Stellen füllen (pro Pattern 3–4 relevante Quellen; möglichst mit DOI)
+- [ ] PATTERN-KONSISTENZ: Tiefe vereinheitlichen (Schema: Context – Problem – (Forces) – Solution – Examples – Consequences – Related Work)
+- [ x ] UML/PLANTUML-BEISPIEL korrigieren (Tippfehler, korrekte Vererbungs-Pfeile, sprechende Feldnamen)
+- [ ] CONCLUSION verschärfen: wissenschaftliche Beiträge & Nutzen für Praxis klar benennen (Top-3 Erkenntnisse, Limitations, Future Work)
+
+B) LANGUAGE & TERMINOLOGY
+-------------------------
+- [ x ] TITEL korrigieren: "Accessible Teaching Materials for Blind and Visually Impaired Students ..."
+- [ x ] KEYWORDS straffen: "accessibility · blind and visually impaired (BVI) · barrier-free materials · education · assistive technologies · artificial intelligence"
+- [ x ] TERMINOLOGIE vereinheitlichen: durchgängig "blind and visually impaired (BVI)" -> acronym package
+- [ ] REDUNDANZEN kürzen (kürzere Sätze, Dopplungen entfernen)
+- [ ] PROOFREADING-PAß (Muttersprachler oder KI-gestützt) für Lesefluss
+
+C) FIGURES & ACCESSIBILITY
+--------------------------
+- [ ] s/w-Tauglichkeit prüfen: Information nicht nur über Farbe (Linienstile, Markerformen, Hatching, Direktbeschriftung)
+- [ ] Screenshots reduzieren/ersetzen: wo möglich Vektor-PDF (UML, Diagramme), oder text/taktil ergänzen
+- [ ] Captions harmonisieren: immer "Fig." + selbsterklärende Kurzbeschreibung (Kontext + didaktischer Nutzen)
+
+D) STRUCTURE & CROSS-REFERENCES
+-------------------------------
+- [ x ] Doppelte Überschrift "Introduction" entfernen
+- [ ] Konsistente Verweise: Figures (Fig.~\ref{...}), Pattern-Namen/-Nummern, keine "Pattern 3" im Text ohne definierte Benennung
+- [ ] "Used Terms" straffen: Definitionen für BVI, Diagram vs. Graphic, Drawing (klar und kurz)
+
+E) REFERENCES (LNCS / splncs04)
+-------------------------------
+- [ ] Bib-Check: Einheitliche Groß-/Kleinschreibung der Titel, Autoren, Jahreszahlen
+- [ ] DOIs ergänzen (wo vorhanden); URLs nur knapp und mit \url{}
+- [ ] Prüfen, dass alle Zitate im Text referenziert sind (keine "dangling" entries)
+- [ ] Finalen Lauf ausführen: pdflatex → bibtex → pdflatex → pdflatex (erzeugt .bbl)
+
+F) LaTeX (LNCS Compliance)
+--------------------------
+- [ ] Autor:innen mit \and trennen; \authorrunning / \titlerunning konsistent
+- [ x ] LNCS-Layout nicht verändern: \setlength\parindent{0pt}, \usepackage{parskip}, \sloppy entfernen
+- [ x ] Einheitlich "Fig." statt gemischt "Figure/Fig."
+- [ ] ORCID im Header prüfen
+
+G) PACKAGING & SUBMISSION (Pasture)
+-----------------------------------
+- [ ] Finales PDF (main.pdf) erzeugen
+- [ ] .bbl-Datei ins Projekt/ZIP aufnehmen
+- [ ] Licence to Publish ausfüllen, unterschreiben, als PDF beilegen
+- [ ] ZIP bauen mit: alle .tex, figures/, literature.bib, main.bbl, main.pdf, LicenceToPublish.pdf
+- [ ] (empfohlen) llncs.cls & splncs04.bst beilegen
+- [ ] Upload im Pasture-System (Submission → Update) + Bestätigung prüfen
+
+Roles (optional)
+----------------
+- Owner-Content: ..................................  Due: ...............
+- Owner-LaTeX/Tech: ...............................  Due: ...............
+- Corresponding Author (Admin): ...................  Due: ...............

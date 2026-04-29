@@ -1,0 +1,51 @@
+EuroPLoP 2025 – Final Submission ToDo List
+===========================================
+
+Deadline: 30.09.2025
+
+1. Manuskript (LaTeX / Overleaf)
+--------------------------------
+- [ ] Header korrigieren
+      - Autor:innen mit \and statt \\ trennen
+      - Titel & Autor:innen in \title, \titlerunning, \author, \authorrunning konsistent setzen
+- [ ] Layout-Einstellungen zurücknehmen
+      - \setlength\parindent{0pt}, \usepackage{parskip}, \sloppy entfernen/auskommentieren
+- [ ] Grafiken prüfen
+      - s/w-Tauglichkeit sicherstellen (Linienstile, Marker, Beschriftungen)
+      - Wenn möglich, PNG → PDF-Vektor (z. B. class-diagram)
+- [ ] Rechtschreibung/Begriffe vereinheitlichen
+      - „visually impaired“ (nicht „visual impaired“)
+      - Einheitliche Terminologie für Accessibility
+- [ ] Finale Kompilierung
+      - Vollständiger Lauf: pdflatex → bibtex → pdflatex → pdflatex
+      - .bbl erzeugen und im Projekt belassen
+      - Finale PDF speichern (main.pdf)
+
+2. Begleitdokumente
+-------------------
+- [ ] Licence to Publish
+      - Formular ausfüllen (Titel, alle Autor:innen, Corresponding Author)
+      - Unterschreiben (Corresponding Author)
+      - Als PDF ins Projekt/ZIP legen
+- [ ] ORCID prüfen
+      - Sind alle ORCIDs korrekt im Header eingebaut?
+
+3. Dateistruktur fürs ZIP
+--------------------------
+- [ ] Quellen: alle .tex + literature.bib
+- [ ] main.bbl (generiert)
+- [ ] main.pdf (kompilierte Endfassung)
+- [ ] Alle eingebundenen Grafiken (nur die, die wirklich im Text genutzt werden)
+- [ ] LicenceToPublish.pdf (signiert)
+- [ ] (empfohlen) llncs.cls und splncs04.bst beilegen
+
+4. Upload
+---------
+- [ ] Alles in eine ZIP-Datei packen (Paper_EuroPLoP2025_<FirstAuthor>.zip)
+- [ ] Upload ins Pasture-System (Submission → Update)
+- [ ] Bestätigung prüfen, dass ZIP hochgeladen ist
+
+5. Nach der Deadline (Vorschau)
+-------------------------------
+- [ ] Proof-Phase (08.–15.10.2025): Corresponding Author verfügbar halten (72 h Reaktionszeit)
+- [ ] Keine Änderungen an Autor:innen oder Reihenfolge mehr möglich
