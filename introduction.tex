@@ -79,9 +79,63 @@ Implicit information as expressed by the spatial arrangement of diagram elements
 \end{tabularx}
 \end{table}
 
-This collection is extended by the following patterns.
+This collection is extended by two additional patterns, \patternSixInline and \patternSevenInline. Figure~\ref{fig:pattern-relationships} shows Pattern~1 as the foundation of the collection. Patterns~2 to~5 provide specialized transformations of visual \ac{stem} artifacts. Pattern~6 uses and orchestrates these transformations in interactive learning situations, while Pattern~7 provides an audio-oriented overview and points learners to precise accessible representations where needed.
 
-\textcolor{red}{TODO:Graph showing the dependencies between the patterns.}
+% KI: Ersetzt das bisherige TODO durch eine editierbare TikZ-Grafik zu den Pattern-Beziehungen.
+\begin{figure}[ht]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[
+    font=\sffamily\scriptsize,
+    patternbox/.style={draw=blue!70!black, rounded corners=3pt, thick, align=center, inner sep=5pt, fill=white, minimum height=13mm},
+    aibox/.style={draw=blue!70!black, rounded corners=3pt, thick, align=center, inner sep=5pt, fill=blue!3, minimum height=16mm},
+    layer/.style={draw=blue!25, fill=blue!5, align=center, minimum width=22mm, minimum height=22mm},
+    arrow/.style={-{Latex[length=2.2mm]}, thick},
+    rel/.style={font=\sffamily\scriptsize\itshape, text=blue!70!black, align=center}
+]
+
+\node[patternbox, minimum width=46mm] (p1) at (0,0) {\textbf{Pattern 1}\\Core of Content};
+\node[rel, below=1mm of p1] {Foundation};
+
+\node[patternbox, minimum width=32mm] (p2) at (-60mm,-30mm) {\textbf{Pattern 2}\\Accessibility\\of Diagrams};
+\node[patternbox, minimum width=32mm] (p3) at (-20mm,-30mm) {\textbf{Pattern 3}\\Accessibility\\of Graphics};
+\node[patternbox, minimum width=32mm] (p4) at (20mm,-30mm) {\textbf{Pattern 4}\\Sonification\\of Time Series};
+\node[patternbox, minimum width=32mm] (p5) at (60mm,-30mm) {\textbf{Pattern 5}\\Graphics with\\Generated Explanation};
+
+\node[aibox, minimum width=50mm] (p6) at (-35mm,-72mm) {\textbf{Pattern 6}\\Accessibility-Aware AI Tutor};
+\node[aibox, minimum width=50mm] (p7) at (45mm,-72mm) {\textbf{Pattern 7}\\Structured Audio Companion};
+
+\node[layer, left=12mm of p1] {Layer 1\\Foundation};
+\node[layer, left=12mm of p2] {Layer 2\\Accessible\\representations};
+\node[layer, left=12mm of p6] {Layer 3\\AI-mediated\\support};
+
+\draw[arrow] (p1) -- (p2);
+\draw[arrow] (p1) -- (p3);
+\draw[arrow] (p1) -- (p4);
+\draw[arrow] (p1) -- (p5);
+\draw[arrow, bend right=8] (p1.east) to node[rel, above right] {summarizes /\\orients} (p7.north east);
+
+\draw[arrow] (p2.south) -- (p6.north west);
+\draw[arrow] (p3.south) -- (p6.north);
+\draw[arrow] (p4.south) -- (p6.north east);
+\draw[arrow] (p5.south west) -- (p6.north east);
+\node[rel] at (-55mm,-53mm) {uses / orchestrates / explains};
+
+\draw[arrow] (p2.south east) -- (p7.north west);
+\draw[arrow] (p3.south east) -- (p7.north west);
+\draw[arrow] (p4.south) -- (p7.north);
+\draw[arrow] (p5.south) -- (p7.north east);
+\node[rel] at (55mm,-53mm) {points to precise\\representations};
+
+\draw[arrow, dashed] (p5.south west) .. controls (20mm,-58mm) and (-5mm,-58mm) .. node[rel, above] {requires verification /\\human-in-the-loop} (p6.east);
+
+\node[align=center, font=\sffamily\scriptsize] at (0,-94mm) {Patterns 6 and 7 extend the 2025 collection and build on the earlier accessibility patterns rather than replacing them.};
+
+\end{tikzpicture}%
+}
+\caption{Pattern relationships in the extended collection. Pattern~1 provides the foundation. Patterns~2--5 provide specialized accessible representations for visual \ac{stem} artifacts. Pattern~6 uses these patterns for interactive AI-supported learning, while Pattern~7 offers audio-oriented orientation and points back to precise accessible representations.}
+\label{fig:pattern-relationships}
+\end{figure}
 
 
 %%%%%%%%%%%%%%%%%%%%%% Paper 2025 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
