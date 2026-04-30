@@ -1,4 +1,4 @@
-% AI Tutor
+% Accessibility-Aware AI Tutor
 
 \patternSix
 
@@ -9,33 +9,34 @@
 
 \subsection*{Problem}
 
-Core teaching materials in \ac{stem} courses are frequently inaccessible to BVI students. In particular, graphical representations such as diagrams, plots, \ac{kv} maps, circuit schematics, and state machines cannot be consumed directly with screen readers.
+Even when principles and patterns for accessible teaching materials are known, \ac{bvi} students often need repeated, context-aware explanations and transformations of visual \ac{stem} artifacts while working through course materials. General-purpose AI systems can generate such explanations, but each interaction requires the student to reintroduce the course context, formulate accessibility expectations, and judge whether the generated output is reliable.
 
-Students may use general-purpose AI systems (e.g., ChatGPT) to obtain text-based explanations or descriptions of visual content. However, this ad hoc approach requires repeated prompting and reintroducing course context for each document. The accessibility burden is shifted to the student, leading to unequal learning conditions and avoidable inefficiencies.
+As a result, the accessibility work is shifted to the student. The quality of explanations varies from prompt to prompt, course terminology is not used consistently, and equal learning conditions are undermined.
 
 
 \subsection*{Forces}
 \renewcommand*\labelitemi{\textbullet}
 \begin{itemize}
-    \item \ac{stem} education relies heavily on visual abstractions.
-    \item Teaching staff often lack time or expertise to fully redesign materials for accessibility.
-    \item \ac{bvi} students need structured, consistent, and context-aware explanations.
-    \item General-purpose AI tools are powerful but lack course-specific knowledge unless carefully prompted.
-    \item Accessibility solutions must scale across courses without excessive manual effort.
+    \item \textbf{Individual support vs. equal learning conditions:} \ac{bvi} students need individual explanations and transformations of visual \ac{stem} artifacts. If this support has to be requested and configured individually in every learning situation, the accessibility work is shifted to the student.
+    \item \textbf{Automation vs. trustworthiness:} AI systems can scale explanations and transformations across many materials, but unverified AI output may hallucinate, misread diagrams, simplify technical relations incorrectly, or hide uncertainty.
+    \item \textbf{Course-specific context vs. maintainability:} Useful explanations require course terminology, learning objectives, conventions, and examples, but maintaining such course-specific context requires effort from instructors or support staff.
+    \item \textbf{Flexibility vs. consistency:} Students need flexible, interactive explanations at different levels of detail, but accessibility requires stable conventions, predictable structure, and screen-reader-friendly language.
+    \item \textbf{Visual richness vs. linear access:} \ac{stem} diagrams convey relations spatially and compactly, but screen-reader access requires linearization and explicit naming of elements, relations, assumptions, and missing information.
+    \item \textbf{Student autonomy vs. quality assurance:} Students benefit from immediate self-service access, but reliable accessibility support requires quality checks, known workflows, and sometimes human verification.
 \end{itemize}
 
 \subsection*{Solution}
 
 \begin{sol}
-Configure a course-specific, \ac{llm}-based AI tutor grounded in the materials, terminology, and learning objectives of a particular course, and enforce explicit accessibility rules for \ac{bvi} students. A Custom GPT is one practical implementation of this idea.
+Provide a persistent, course-specific, accessibility-aware AI tutor grounded in the materials, terminology, and learning objectives of a particular course, and enforce explicit accessibility rules for \ac{bvi} students.
 \end{sol}
 
-To resolve the challenges of visual reliance in \ac{stem},  limited instructor time,  the need for consistent, context-aware explanations, and scalability across semesters, the tutor is set up as a reusable and maintainable resource with three building blocks:
+To resolve the tensions between individual support and equal learning conditions, automation and trustworthiness, flexibility and consistency, the tutor is set up as a reusable and maintainable resource with three building blocks:
 
 \begin{itemize}
     \item Instruction policy
     \newline
-    Define a stable interaction and accessibility policy: the AI tutor has to explain content in a linear and screen-reader-friendly language. Avoid purely spatial references like ``left/right/top/bottom'' and purely decorative elements like emojis (see Pattern 1 \textsc{Core of Content}). 
+    Define a stable interaction and accessibility policy: the AI tutor has to explain content in a linear and screen-reader-friendly language. Avoid purely spatial references like ``left/right/top/bottom'' and purely decorative elements like emojis (see Pattern 1 \textsc{Core of Content}). The tutor should mark assumptions and uncertainty instead of presenting ambiguous interpretations as facts.
     
 
     \item Curated course knowledge base
@@ -49,7 +50,7 @@ To resolve the challenges of visual reliance in \ac{stem},  limited instructor t
         \item \emph{PDFs, slides or figures}: (1) short overview, (2) structured description of elements and connections, (3) interpretation of meaning/function in the course context.
         \item \emph{Electronic Circuits}: (1) verbal reconstruction of the schematic (nodes, components, polarity), (2) generation of a commented SPICE/LTspice netlist using speaking node names, (3) explicit marking of assumptions if the source is ambiguous.
         \item \emph{Simulation output}: prefer text-first result reporting e.g. as  tables  over graphical plotting, such that \ac{bvi} students can inspect results with screen readers.  Pattern 3 \textsc{Accessibility of Graphics} introduces solutions for accessing plottings and Pattern 4 \textsc{Sonification of Time Series} 
-shows a solution for making tabular time series, which are a typical textual outputs of simulation programes, accessible via the ear as an alternative channel.  
+shows a solution for making tabular time series, which are a typical textual outputs of simulation programs, accessible via the ear as an alternative channel.  
     \end{enumerate}
 \end{itemize}
 
@@ -61,11 +62,13 @@ To support adoption and quality assurance, provide two short documents alongside
 
 Finally, maintain the AI tutor through a lightweight quality assurance process:  run a small set of standard test prompts like the generation of figure descriptions whenever new materials are added. Adjust the instruction policy and guideline documents if recurring failure modes appear.
 
+A Custom GPT is one practical implementation of this pattern. Other implementations may use a retrieval-augmented chatbot, an institutionally hosted \ac{llm} system, or an assistant integrated into a learning management system.
+
 \subsection*{Resulting Context}
 
-Students gain access to a persistent, course-aware AI tutor that can explain lecture content, exercises, and graphical representations in an accessible, text-based form. The individual effort required to make materials accessible is significantly reduced.
+After applying this pattern, the course has a persistent accessibility layer that can provide context-aware explanations and transformations of visual \ac{stem} artifacts. Students no longer need to recreate prompts, course context, and accessibility rules in every interaction. Instructors can reuse and improve the tutor across semesters.
 
-Instructors are supported rather than burdened, as they do not need to manually create alternative materials for every student. The approach improves inclusivity while preserving the original structure and learning objectives of the course.
+However, the tutor does not remove the need for stable accessible representations. Some artifacts require formal textual formats such as netlists, tables, or diagram descriptions, and AI-generated explanations must be checked for correctness. This resulting context therefore connects the pattern to Pattern 1 \textsc{Core of Content}, Pattern 2 \textsc{Accessibility of Diagrams}, Pattern 5 \textsc{Graphics with Generated Explanation}, and Pattern 4 \textsc{Sonification of Time Series}.
 
 \subsection*{Examples}
 
@@ -102,7 +105,7 @@ The pattern was applied in the course ``Technical Informatics~1 (TI-1)'' at a un
 \noindent\textbf{Liabilities}
 \begin{itemize}
     \item[$-$] The quality of the generated accessible learning materials  depends on input quality and curation. Inconsistent terminology, missing figure context, or outdated materials reduce explanation quality. An ongoing maintenance of the knowledge base is required.
-    \item[$-$] Using AI tools come along withe the risk of inaccuracies and hallucinations. Misread or ambiguous figures may lead to incorrect explanations. Human verification of the material is required, which is an additional effort.
+    \item[$-$] Using AI tools comes with the risk of inaccuracies and hallucinations. Misread or ambiguous figures may lead to incorrect explanations. Human verification of the material is required, which is an additional effort.
     \item[$-$] Creating the instruction policy, guideline documents, and short instructor/student manuals requires initial effort before benefits materialize.
     \item[$-$]  AI tutors can improve consistency but  become outdated if changes in exercises, notation, or tools are not processed in time.
     \item[$-$] Without careful framing, students may over-rely on the AI tutor. Instructors should define recommended or acceptable use of the AI tutor and consider privacy/copyright constraints for uploaded materials.
