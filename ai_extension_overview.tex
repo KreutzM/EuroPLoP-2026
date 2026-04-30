@@ -3,35 +3,48 @@
 
 Figure~\ref{fig:ai-workflow} summarizes how the two new patterns are applied in relation to course materials. Course materials such as slides, scripts, exercises, figures, and simulation outputs are first prepared in a curation layer. This layer contains course context, terminology, learning goals, accessibility rules, and transformation workflows. Pattern~6 then provides interactive accessible outputs such as explanations, diagram descriptions, netlists, tables, and quality-assurance prompts. Pattern~7 provides audio-oriented outputs such as segmented audio overviews, transcripts, timecodes, and references to figures and tables. Both branches converge in accessible learning support: screen-reader-friendly explanations, precise representations, orientation and review, and human-in-the-loop quality assurance.
 
-% KI: Robuste tabularx-Figur statt TikZ: kompiliert mit vorhandenen Paketen und bleibt vollständig editierbar.
+% KI: Robuste minipage/Fbox-Figur statt verschachtelter tabularx-Struktur; behebt den Build-Fehler aus main.log Zeile 1246.
 \begin{figure}[ht]
 \centering
 \small
-\setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.25}
-\begin{tabularx}{\textwidth}{|X|}
-\hline
-\textbf{Course Materials} \\
-slides, scripts, exercises, figures, simulations \\
-\hline
-\multicolumn{1}{c}{$\Downarrow$} \\
-\hline
-\textbf{Curation Layer} \\
-course context; terminology; learning goals; accessibility rules; transformation workflows \\
-\hline
-\multicolumn{1}{c}{$\Downarrow$} \\
-\hline
-\begin{tabularx}{\textwidth}{X@{\hspace{0.05\textwidth}}X}
-\textbf{Pattern 6: Accessibility-Aware AI Tutor} & \textbf{Pattern 7: Structured Audio Companion} \\
-interactive explanations; diagram descriptions; netlists; tables; QA prompts & segmented audio overview; transcript; timecodes; references to figures and tables \\
-\end{tabularx} \\
-\hline
-\multicolumn{1}{c}{$\Downarrow$} \\
-\hline
-\textbf{Accessible Learning Support} \\
-screen-reader-friendly explanations; precise representations; orientation and review; human-in-the-loop quality assurance \\
-\hline
-\end{tabularx}
+\fbox{\begin{minipage}{0.92\textwidth}
+\textbf{Course Materials}\\
+slides, scripts, exercises, figures, simulations
+\end{minipage}}
+
+\vspace{0.3em}
+$\Downarrow$
+\vspace{0.3em}
+
+\fbox{\begin{minipage}{0.92\textwidth}
+\textbf{Curation Layer}\\
+course context; terminology; learning goals; accessibility rules; transformation workflows
+\end{minipage}}
+
+\vspace{0.3em}
+$\Downarrow$
+\vspace{0.3em}
+
+\noindent
+\fbox{\begin{minipage}{0.44\textwidth}
+\textbf{Pattern 6: Accessibility-Aware AI Tutor}\\
+interactive explanations; diagram descriptions; netlists; tables; QA prompts
+\end{minipage}}
+\hfill
+\fbox{\begin{minipage}{0.44\textwidth}
+\textbf{Pattern 7: Structured Audio Companion}\\
+segmented audio overview; transcript; timecodes; references to figures and tables
+\end{minipage}}
+
+\vspace{0.3em}
+$\Downarrow$
+\vspace{0.3em}
+
+\fbox{\begin{minipage}{0.92\textwidth}
+\textbf{Accessible Learning Support}\\
+screen-reader-friendly explanations; precise representations; orientation and review; human-in-the-loop quality assurance
+\end{minipage}}
+
 \caption{AI-mediated accessibility workflow. AI is embedded in explicit workflows, curated course context, and quality assurance. Pattern~6 produces interactive accessible outputs, while Pattern~7 provides structured audio orientation. Audio supports orientation; it does not replace precise accessible representations.}
 \label{fig:ai-workflow}
 \end{figure}
