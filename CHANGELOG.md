@@ -17,10 +17,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 ### Changed
 
 - Documented expected local TeX/LNCS requirements and final-submission readiness checks.
+- Made Makefile checks more portable on Windows by auto-detecting `python3`, `python`, or `py` and documenting `make PYTHON=py check`.
 
 ### Fixed
 
-- Not yet.
+- `make check` no longer depends unconditionally on a `python3` executable being available on Windows.
 
 ## [Initial repository import]
 
