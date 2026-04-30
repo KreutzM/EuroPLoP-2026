@@ -3,60 +3,35 @@
 
 Figure~\ref{fig:ai-workflow} summarizes how the two new patterns are applied in relation to course materials. Course materials such as slides, scripts, exercises, figures, and simulation outputs are first prepared in a curation layer. This layer contains course context, terminology, learning goals, accessibility rules, and transformation workflows. Pattern~6 then provides interactive accessible outputs such as explanations, diagram descriptions, netlists, tables, and quality-assurance prompts. Pattern~7 provides audio-oriented outputs such as segmented audio overviews, transcripts, timecodes, and references to figures and tables. Both branches converge in accessible learning support: screen-reader-friendly explanations, precise representations, orientation and review, and human-in-the-loop quality assurance.
 
-% KI: Die Grafik illustriert, dass AI nicht direkt auf ungeprüfte Materialien angewandt wird, sondern in kuratierte Workflows eingebettet ist.
+% KI: Robuste tabularx-Figur statt TikZ: kompiliert mit vorhandenen Paketen und bleibt vollständig editierbar.
 \begin{figure}[ht]
 \centering
-\resizebox{\textwidth}{!}{%
-\begin{tikzpicture}[
-    font=\sffamily\small,
-    box/.style={draw=blue!70!black, rounded corners=3pt, thick, align=left, inner sep=6pt, fill=white},
-    greenbox/.style={draw=green!50!black, rounded corners=3pt, thick, align=left, inner sep=6pt, fill=green!5},
-    purplebox/.style={draw=violet!70!black, rounded corners=3pt, thick, align=left, inner sep=6pt, fill=violet!5},
-    note/.style={draw=blue!70!black, rounded corners=3pt, dashed, align=left, inner sep=6pt, fill=blue!4},
-    arrow/.style={-{Latex[length=2.5mm]}, thick}
-]
-
-\node[box, minimum width=37mm, minimum height=17mm] (materials) at (0,0)
-{\textbf{Course Materials}\\[-1mm]\footnotesize slides, scripts, exercises,\\figures, simulations};
-
-\node[box, minimum width=45mm, minimum height=25mm, right=23mm of materials] (curation)
-{\textbf{Curation Layer}\\[-1mm]\footnotesize course context\\terminology\\learning goals\\accessibility rules\\transformation workflows};
-
-\node[note, minimum width=48mm, right=18mm of curation] (note1)
-{\footnotesize AI is embedded in explicit\\workflows, curated course\\context, and quality assurance.};
-
-\node[greenbox, minimum width=47mm, minimum height=18mm, below left=20mm and 4mm of curation] (p6)
-{\textbf{Pattern 6}\\[-1mm]\textbf{Accessibility-Aware}\\\textbf{AI Tutor}};
-
-\node[purplebox, minimum width=47mm, minimum height=18mm, below right=20mm and 4mm of curation] (p7)
-{\textbf{Pattern 7}\\[-1mm]\textbf{Structured Audio}\\\textbf{Companion}};
-
-\node[greenbox, minimum width=49mm, below=14mm of p6] (out6)
-{\textbf{Interactive accessible outputs}\\[-1mm]\footnotesize explanations\\diagram descriptions\\netlists\\tables\\QA prompts};
-
-\node[purplebox, minimum width=49mm, below=14mm of p7] (out7)
-{\textbf{Audio-oriented outputs}\\[-1mm]\footnotesize segmented audio overview\\transcript\\timecodes\\references to figures/tables};
-
-\node[note, draw=violet!70!black, fill=violet!4, minimum width=46mm, right=14mm of p7] (note2)
-{\footnotesize Audio supports orientation;\\it does not replace precise\\accessible representations.};
-
-% KI: Explizite Koordinate statt berechnetem Ausdruck in positioning; verhindert TikZ-Build-Fehler.
-\coordinate (outputs-center) at ($(out6)!0.5!(out7)$);
-\node[box, minimum width=68mm, below=25mm of outputs-center] (support)
-{\textbf{Accessible Learning Support}\\[-1mm]\footnotesize screen-reader-friendly explanations\\precise representations\\orientation and review\\human-in-the-loop QA};
-
-\draw[arrow] (materials) -- (curation);
-\draw[arrow, dashed, blue!70!black] (curation) -- (note1);
-\draw[arrow] (curation.south) -- ++(0,-5mm) -| (p6.north);
-\draw[arrow] (curation.south) -- ++(0,-5mm) -| (p7.north);
-\draw[arrow] (p6) -- (out6);
-\draw[arrow] (p7) -- (out7);
-\draw[arrow, dashed, violet!70!black] (p7) -- (note2);
-\draw[arrow] (out6.south) -- ++(0,-7mm) -| (support.north);
-\draw[arrow] (out7.south) -- ++(0,-7mm) -| (support.north);
-
-\end{tikzpicture}%
-}
-\caption{AI-mediated accessibility workflow. Course materials are first curated through course context, accessibility rules, and transformation workflows. Pattern~6 produces interactive accessible outputs, while Pattern~7 provides structured audio orientation. Both support accessible learning without replacing precise accessible representations and quality assurance.}
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\textwidth}{|X|}
+\hline
+\textbf{Course Materials} \\
+slides, scripts, exercises, figures, simulations \\
+\hline
+\multicolumn{1}{c}{$\Downarrow$} \\
+\hline
+\textbf{Curation Layer} \\
+course context; terminology; learning goals; accessibility rules; transformation workflows \\
+\hline
+\multicolumn{1}{c}{$\Downarrow$} \\
+\hline
+\begin{tabularx}{\textwidth}{X@{\hspace{0.05\textwidth}}X}
+\textbf{Pattern 6: Accessibility-Aware AI Tutor} & \textbf{Pattern 7: Structured Audio Companion} \\
+interactive explanations; diagram descriptions; netlists; tables; QA prompts & segmented audio overview; transcript; timecodes; references to figures and tables \\
+\end{tabularx} \\
+\hline
+\multicolumn{1}{c}{$\Downarrow$} \\
+\hline
+\textbf{Accessible Learning Support} \\
+screen-reader-friendly explanations; precise representations; orientation and review; human-in-the-loop quality assurance \\
+\hline
+\end{tabularx}
+\caption{AI-mediated accessibility workflow. AI is embedded in explicit workflows, curated course context, and quality assurance. Pattern~6 produces interactive accessible outputs, while Pattern~7 provides structured audio orientation. Audio supports orientation; it does not replace precise accessible representations.}
 \label{fig:ai-workflow}
 \end{figure}
