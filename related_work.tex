@@ -1,0 +1,20 @@
+% KI: D.15 zentralisiert Related Work, damit die einzelnen Patterns nicht wie separate Mini-Papers wirken.
+\section{Related Work}
+
+\subsection{Accessible STEM representations and AI-supported visual explanations}
+
+Recent work explores \ac{llm} and \ac{mllm} based tools as assistive technologies that translate visually encoded information into representations that can be perceived and navigated by \ac{bvi} users. Empirical evaluations indicate that \ac{mllm}s can support common visual assistance tasks, while reliability and error handling remain central challenges for broader use \cite{Karamolegkou2025}. Generative AI for accessible content production has recently gained significant attention as a promising strategy for reducing educational barriers. Research demonstrates that large language models and image-to-text systems can automatically generate alternative text, audio descriptions, or multi-modal summaries, thereby supporting blind and visually impaired learners in \ac{stem} and other fields \cite{Karamolegkou2025,Schauer2025}.
+
+In the domain of data visualizations, conversational systems such as \textit{VizAbility} demonstrate how dialogue-based interaction can augment chart exploration \cite{Gorniak2024VizAbility}. Complementary work emphasizes that accessibility is not achieved by static descriptions alone but depends on interaction mechanisms that preserve user agency and enable independent exploration with screen readers \cite{Sharif2025VoxEx}.
+
+A second line of related research focuses on making diagram semantics explicit so that users can query or learn from diagrams through language-based interaction. Approaches that generate detailed textual descriptions of diagrams for \ac{llm}-based exploration illustrate how ``silent'' graphics can be bridged into structured natural language, supporting accessible learning pathways for \ac{bvi} users \cite{Wegwerth2023Diagram}.
+
+There is ongoing research how to extract circuit structure from schematics and generating netlists automatically. \cite{Hemker2024Schematics,Huang2025Netlistify} present deep-learning-based schematic-to-netlist pipelines demonstrating progress in component recognition and connectivity extraction.
+
+For time-dependent simulation outputs, related state-of-the-art work on sonification and haptic feedback provides additional non-visual access that can complement text-based traces and key metrics \cite{Spagnuolo2025Sonification}.
+
+\subsection{Audio summaries and multimodal learning support}
+
+Structured educational podcasts have been studied as an accessible learning modality for \ac{bvi} users, showing that clear structure and navigability matter \cite{Buzzi2011StructuredPodcasts}. Speech-first summarization research emphasizes that summaries optimized for spoken output require different design choices than text summaries and should explicitly support linear comprehension \cite{McKeown2005TextToSpeech}.
+
+Recent accessibility research explores AI-assisted navigation and question answering to help \ac{bvi} learners access lecture content more efficiently \cite{Anderer2025LectureVideos}, aligning with our goal of reducing first-pass overhead for large material bundles. Recent studies of AI-generated educational podcasts report positive learner experiences and measurable learning outcomes in educational settings \cite{Do2024PAIGE}. Podcast-like course materials should be supplemented with textual information to enable targeted access to the audio information and to provide alternative channels.
