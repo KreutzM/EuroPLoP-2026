@@ -2,71 +2,67 @@
 
 \subsection*{Context}
 
-\ac{bvi} students are increasingly represented in \ac{stem} (Science, Technology, Engineering, and Mathematics) degree programs. In computer science and engineering courses, learning is often driven by large collections of written materials such as lecture scripts, slide decks, exercise sheets, lab instructions, and reading assignments. \ac{bvi} students typically consume these materials through screen readers or Braille displays, which provide linear access; navigating and revisiting long documents is time-consuming.
+% KI: C.11 differenziert die Zielgruppen stärker; BVI bleibt relevant, Audio wird aber nicht als Ersatz für präzise visuelle STEM-Repräsentationen dargestellt.
+\ac{stem} teaching in computer science and engineering is often driven by large collections of written materials such as lecture scripts, slide decks, exercise sheets, lab instructions, and reading assignments. These materials are consumed in different ways by different learners. Some students benefit from auditory access when sustained reading is challenging (e.g., dyslexia) or when initiating and sustaining attention on long texts is difficult (e.g., \ac{adhd}). For some autistic students, predictable structure and reduced cognitive overload can be beneficial, while others may prefer text over audio.
 
-Some students also benefit from alternative representations when sustained reading is challenging (e.g., dyslexia) or because initiating and sustaining attention on long texts is difficult (e.g., \ac{adhd}). For some autistic students, predictable structure and reduced cognitive overload can be beneficial, while others may prefer text over audio. These groups are secondary beneficiaries of this pattern; the primary accessibility motivation and constraints focus on \ac{bvi} learners.
+\ac{bvi} students may also benefit from an additional audio-oriented access channel, especially for orientation and review. However, in \ac{stem} contexts, audio summaries cannot replace precise accessible representations of visual artifacts such as diagrams, plots, circuit schematics, \ac{kv} maps, tables, or formulas. For \ac{bvi} learners, such precise representations remain necessary when visual artifacts carry essential technical information.
 
-This pattern applies both the teaching contexts with bundles of course materials and, with similar constraints, to academic work for a first-pass reading of long papers or book chapters.
+This pattern applies to teaching contexts with bundles of course materials and, with similar constraints, to academic work for a first-pass reading of long papers or book chapters.
 
 \subsection*{Problem}
 
-Long documents and heterogeneous material collections are costly to consume and revisit when access is primarily linear using screen readers or Braille displays. Students may lose time and context, enter topics late, and struggle to prepare for tutorials and discussions.
+% KI: C.12 schärft das Problem: Nicht lange Dokumente an sich sind neu, sondern Struktur- und Präzisionsverlust generischer Audio-Zusammenfassungen in STEM-Materialien.
+Academic \ac{stem} materials often combine long explanatory text with figures, formulas, tables, diagrams, plots, and references across sections. Generic text-to-speech or automatically generated audio summaries can reduce reading effort, but they often flatten the structure of the material, omit references to visual artifacts, and may give learners the false impression that they have accessed the full technical content.
+
+Learners who need auditory support require orientation, segmentation, and a way to revisit relevant parts of the material. \ac{bvi} learners additionally need reliable pointers to precise accessible representations whenever visual artifacts contain essential technical information.
 
 Students can use general-purpose AI systems to create summaries as easier accessible versions of documents. However, this ad-hoc approach requires repeated context building and prompt engineering for each new document and week. The accessibility workload is shifted to the student and does not scale.
-
-In \ac{stem}, materials often include diagrams, plots, and schematics that are not inherently accessible. AI generated descriptions can support semantic orientation, but they do not replace precise accessible representations of visual artifacts.
 
 
 \subsection*{Forces}
 \renewcommand*\labelitemi{\textbullet}
 
+% KI: C.13 ersetzt die frühere Anforderungsliste durch echte Forces mit gegensätzlichen Anforderungen.
 \begin{itemize}
-    \item Audio summaries are useful, but may contain omissions or inaccuracies. Quality assurance of the generated audios may become an additional effort.
-    \item The audio should condense and restructure what is in the sources, but should not introduce novel aspects or even invented details.
-    \item Some learners find audio distracting or unsuitable, hence alternatives must remain available.
-    \item Pure audio is hard to skim. \ac{bvi} learners need additional information about the structure of documents like which chapter or timecodes. Ideally audio files are accompanied with  transcripts.
-    \item Summaries must support learning without becoming a shortcut that replaces engagement with primary sources.
-    \item Output quality depends on machine-readable, well-structured sources, but e.g. scan-only PDFs do not provide structural information.
-    %\item Course materials and student submissions may be protected; institutional policies may restrict uploads or redistribution.
+    \item \textbf{Overview vs. precision:} Audio summaries can provide quick orientation and reduce reading load, but \ac{stem} learning often requires precise access to formulas, diagrams, data, and technical relations that cannot be safely reduced to a narrative summary.
+    \item \textbf{Engagement vs. navigability:} A podcast-like dialogue can make material easier and more pleasant to consume, but learners need headings, timecodes, transcripts, and explicit references to revisit exact parts of the material.
+    \item \textbf{Low effort vs. pedagogical control:} Fully automatic audio generation is easy to apply, but without guidance it may omit relevant concepts, overemphasize entertaining dialogue, or distort the intended learning sequence.
+    \item \textbf{Multiple learner needs vs. one-size-fits-all output:} Students with \ac{adhd} or dyslexia may benefit from chunking, repetition, and auditory reinforcement, while \ac{bvi} students require explicit access to structure and reliable alternatives for visual artifacts.
+    \item \textbf{Convenience vs. false completeness:} Audio access can lower barriers, but it may create the false impression that listening to a summary is equivalent to accessing the full technical content.
+    \item \textbf{Source grounding vs. fluent synthesis:} Generated audio should be fluent and easy to follow, but it must remain grounded in the source material and indicate where assumptions, omissions, or unresolved visual artifacts remain.
 \end{itemize}
 
-\begin{comment}
-\begin{itemize}
-    \item \textbf{Accuracy vs.\ effort:} Audio summaries are useful but may contain omissions or inaccuracies; quality assurance must not become a new large burden.
-    \item \textbf{Faithfulness to sources:} The audio should condense and restructure what is in the sources, not introduce novel claims or invented details.
-    \item \textbf{Audio helps many, not all:} Some learners find audio distracting or unsuitable; alternatives must remain available.
-    \item \textbf{Navigability:} Pure audio is hard to skim; BVI learners need structure (chapters/timecodes) and ideally a transcript.
-    \item \textbf{Assessment integrity:} Summaries must support learning without becoming a shortcut that replaces engagement with primary sources.
-    \item \textbf{Source quality:} Output quality depends on machine-readable, well-structured sources (no scan-only PDFs; code should be text, not screenshots).
-    \item \textbf{Privacy/IP constraints:} Course materials and student submissions may be protected; institutional policies may restrict uploads or redistribution.
-\end{itemize}
-\end{comment}
 \subsection*{Solution}
 
+% KI: C.14 formuliert die Solution toolunabhängig: nicht „NotebookLM/Podcast erzeugen“, sondern strukturierte Audio-Begleitung mit Transkript, Timecodes und Verweisen auf präzise Alternativen.
 \begin{sol}
-Use a customized \ac{llm} tool specialized on generating overviews based on uploaded documents. 
-Use the the audio overview feature of such tools to generate podcast-like, speech-first audio summaries from a curated bundle of course sources.
+Provide a structured audio companion for complex \ac{stem} materials. The audio companion is generated or authored from the source material, but it is organized according to explicit accessibility and learning rules: it starts with a short orientation, is divided into clearly named segments, provides a transcript or outline with timecodes, refers explicitly to figures, tables, equations, and diagrams, and points learners to precise accessible representations whenever visual artifacts contain essential technical information.
 \end{sol}
 
 Design the output to be speech-first, accessible, and faithful:
 \begin{itemize}
-    \item Start with learning objectives and a short overview.
+    \item Start with learning objectives and a short orientation: What is the document or material bundle about, and what should the learner be able to do afterwards?
+    \item Divide the audio into clearly named segments with a transcript or outline and timecodes.
     \item Define key terms and notation consistently.
-    \item Provide  mini examples that illustrate the course style.
+    \item Refer explicitly to figures, tables, equations, and diagrams instead of silently skipping them.
+    \item Point to precise accessible representations, e.g., tables, netlists, textual diagram descriptions, or \ac{kv} map representations, when visual artifacts carry essential technical content.
+    \item Provide mini examples that illustrate the course style.
     \item Highlight common misconceptions.
     \item End with a short checklist (``You should be able to\ldots'') and ``what to read/do next.''
     \item Explicitly mark uncertainty and avoid adding details not supported by the provided sources.
 \end{itemize}
 
-Publish the audio as an  learning aid accompanied by additional information, especially a textual transcript and a chapter list with timecodes.
-The audio is a learning aid and may contain errors or omissions, which should be declared in disclaimer.
+Publish the audio as a learning aid accompanied by additional information, especially a textual transcript and a chapter list with timecodes.
+The audio is a learning aid and may contain errors or omissions, which should be declared in a disclaimer.
 %; primary sources remain authoritative.
 
 Use different granularity levels to fit different needs, e.g., a short weekly overview, a longer deep dive for complex topics, and an exam-revision overview.
 
 \subsection*{Resulting Context}
 
-Instructors provide a reusable, low-friction first pass overview of course materials that reduces navigation overhead for \ac{bvi} students and supports preparation for tutorials and discussions. Students gain an additional channels, audio and transcript, that can be consumed flexibly  without replacing the original sources.
+Instructors provide a reusable, low-friction first pass overview of course materials that reduces navigation overhead and supports preparation for tutorials and discussions. Students gain additional channels, audio and transcript, that can be consumed flexibly without replacing the original sources.
+
+For \ac{bvi} students, the audio companion provides orientation and review. It does not replace precise accessible representations of visual \ac{stem} artifacts; instead, it should point to them whenever full technical access is required.
 
 \subsection*{Examples}
 
@@ -74,8 +70,8 @@ The pattern was applied in the course ``Technical Informatics~1 (TI-1)'' at our 
 
 \begin{enumerate}
     \item Boolean operations and truth tables\\
-    \emph{Input:} Text-first course content (e.g., Markdown-based core content rendered into slides) + and weekly exercise sheets.\\
-    \emph{Request:} ``Create an Audio Overview with: (1) learning objectives, (2) key terms/notation, (3) one mini example, (4) two common misconceptions, (5) a checklist and next steps. Be faithful to the sources; mark uncertainty; avoid spatial references.''\\
+    \emph{Input:} Text-first course content (e.g., Markdown-based core content rendered into slides) and weekly exercise sheets.\\
+    \emph{Request:} ``Create an Audio Overview with: (1) learning objectives, (2) key terms/notation, (3) one mini example, (4) two common misconceptions, (5) a checklist and next steps. Be faithful to the sources; mark uncertainty; avoid spatial references. Refer explicitly to figures or tables and point to accessible representations where needed.''\\
     \emph{Output:} An audio overview, a transcript and chapter lists with timecodes covering AND/OR/NOT, truth-table construction, typical precedence pitfalls, and a short practice checklist.
 
     \item \ac{kv} maps \\
@@ -93,25 +89,26 @@ The pattern was applied in the course ``Technical Informatics~1 (TI-1)'' at our 
 
 \noindent\textbf{Benefits}
 \begin{itemize}
-    \item[$+$] Podcast-Like audio summaries can provide a faster orientation over large material bundles. They reduce navigation overhead and support preparation for tutorials and discussions.
-    \item[$+$]  Audio accompanied with textual information like a transcript and chapter list can be consumed flexibly and supports independent learning.
+    \item[$+$] Structured audio companions can provide a faster orientation over large material bundles. They reduce navigation overhead and support preparation for tutorials and discussions.
+    \item[$+$] Audio accompanied with textual information like a transcript and chapter list can be consumed flexibly and supports independent learning.
     \item[$+$] Students with dyslexia/ADHD benefit from a reduced reading load and lower entry barriers.
+    \item[$+$] \ac{bvi} students gain an additional orientation channel when the audio companion explicitly points to precise accessible representations of visual artifacts.
     %\item[$+$] \textbf{Scales for instructors.} A repeatable weekly pipeline yields consistent outputs with limited additional effort.
 \end{itemize}
 
 \noindent\textbf{Liabilities}
 \begin{itemize}
-    \item[$-$] AI generated materials may have inaccuracies and or e.g. misleading summaries. Quality assurance means an additional effort. Disclaimers should be added.
+    \item[$-$] AI generated materials may have inaccuracies or misleading summaries. Quality assurance means an additional effort. Disclaimers should be added.
     \item[$-$] Important details of the original materials may be omitted due to condensation. Students have to consult primary sources for full fidelity.
     \item[$-$] Students may substitute audio summaries for primary sources, especially near assessments. Hence they may miss important details of the original course materials.
     \item[$-$] Audio can be distracting or unsuitable for some learners. Transcripts and text materials must remain available.
-    \item[$-$]  Institutional policies may restrict what can be uploaded or redistributed.
+    \item[$-$] Institutional policies may restrict what can be uploaded or redistributed.
 \end{itemize}
 
 \begin{comment}
 \subsection*{Related Patterns}
 
-\textbf{Pattern 6 (AI Tutor):} Use a course-specific, source-grounded tutor for precise transformations and explanations of visual artifacts (diagrams, schematics, KV maps). Pattern~7 complements this by providing orientation and revision via structured audio overviews.
+\textbf{Pattern 6 (Accessibility-Aware AI Tutor):} Use a course-specific, source-grounded tutor for precise transformations and explanations of visual artifacts (diagrams, schematics, KV maps). Pattern~7 complements this by providing orientation and revision via structured audio overviews.
 
 \subsection*{Known Uses}
 \begin{itemize}
