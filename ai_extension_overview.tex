@@ -40,7 +40,9 @@ Figure~\ref{fig:ai-workflow} summarizes how the two new patterns are applied in 
 \node[note, draw=violet!70!black, fill=violet!4, minimum width=46mm, right=14mm of p7] (note2)
 {\footnotesize Audio supports orientation;\\it does not replace precise\\accessible representations.};
 
-\node[box, minimum width=68mm, below=25mm of $(out6)!0.5!(out7)$] (support)
+% KI: Explizite Koordinate statt berechnetem Ausdruck in positioning; verhindert TikZ-Build-Fehler.
+\coordinate (outputs-center) at ($(out6)!0.5!(out7)$);
+\node[box, minimum width=68mm, below=25mm of outputs-center] (support)
 {\textbf{Accessible Learning Support}\\[-1mm]\footnotesize screen-reader-friendly explanations\\precise representations\\orientation and review\\human-in-the-loop QA};
 
 \draw[arrow] (materials) -- (curation);
