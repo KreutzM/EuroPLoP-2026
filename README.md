@@ -28,13 +28,16 @@ Install a reasonably complete TeX Live distribution with:
 - `pdflatex`
 - BibTeX
 - Springer LNCS class/style support: `llncs.cls` and `splncs04.bst`
+- Python 3 for the lightweight repository checks
 
 On Debian/Ubuntu, the following packages are usually sufficient:
 
 ```bash
 sudo apt-get update
-sudo apt-get install latexmk texlive-latex-recommended texlive-latex-extra texlive-publishers texlive-fonts-recommended
+sudo apt-get install latexmk texlive-latex-recommended texlive-latex-extra texlive-publishers texlive-fonts-recommended python3
 ```
+
+On Windows, MiKTeX or TeX Live is suitable. If `python3` is not available but the Python launcher is installed, use `make PYTHON=py check`.
 
 Check LNCS availability:
 
@@ -71,11 +74,29 @@ make check
 
 This currently performs:
 
-1. LaTeX build through `latexmk`.
-2. Duplicate BibTeX-key check for `literature.bib`.
-3. Lightweight text scan for common unresolved manuscript markers.
+1. Tool availability checks for `latexmk` and Python.
+2. LaTeX build through `latexmk`.
+3. Duplicate BibTeX-key check for `literature.bib`.
+4. Lightweight text scan for common unresolved manuscript markers.
 
 The checks are intentionally lightweight. They do **not** replace manual PDF review.
+
+### Windows notes
+
+If `make check` fails because Python cannot be found, try one of these commands:
+
+```bash
+make PYTHON=py check
+make PYTHON=python check
+```
+
+The direct equivalent without `make` is:
+
+```bash
+latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
+py scripts/check_bib_keys.py literature.bib
+py scripts/check_markers.py
+```
 
 ## Clean build artifacts
 

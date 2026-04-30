@@ -40,13 +40,16 @@ Equivalent direct command:
 latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
 ```
 
-The project assumes a TeX Live installation with at least:
+The project assumes a TeX Live or MiKTeX installation with at least:
 
 - `latexmk`
 - `pdflatex`
 - BibTeX
+- Python 3 for local checks
 - Springer LNCS support (`llncs.cls`, `splncs04.bst`, usually via `texlive-publishers`)
 - common LaTeX packages used in `preamble.tex`, including `acronym`, `comment`, `graphicx`, `hyperref`, `listings`, `mdframed`, `subcaption`, `tabularx`, `todonotes`, and `xcolor`
+
+On Windows, `python3` is often not present even when Python is installed. The Makefile now auto-detects `python3`, `python`, or `py`; if necessary, run `make PYTHON=py check`.
 
 ## Required checks before a PR is ready
 
@@ -54,6 +57,12 @@ Run:
 
 ```bash
 make check
+```
+
+If Python auto-detection fails on Windows, run:
+
+```bash
+make PYTHON=py check
 ```
 
 Then inspect the generated `main.pdf` manually. A successful build alone is not sufficient.
@@ -128,6 +137,8 @@ Use terminology consistently:
 
    ```bash
    python3 scripts/check_bib_keys.py literature.bib
+   # or on Windows:
+   py scripts/check_bib_keys.py literature.bib
    ```
 
 4. Check whether the local TeX installation contains LNCS files:
