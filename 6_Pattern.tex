@@ -91,6 +91,20 @@ The pattern was applied in the course ``Technical Informatics~1 (TI-1)'' at a un
     \emph{Output:} The tutor returns (i) a verbal reconstruction, (ii) a commented netlist suitable for screen readers, and (iii) an accessible evaluation setup (tables and measurements) enabling \ac{bvi} students to inspect simulation results without graphical plotting.
 \end{enumerate}
 
+% KI: D.16 macht bekannte Nutzungen sichtbar; ausführliche Literaturdiskussion bleibt in der zentralen Related-Work-Sektion.
+\subsection*{Known Uses}
+
+\begin{itemize}
+    \item \textbf{Technical Informatics~1 (course-specific AI tutor).}
+    The pattern has been applied in the course ``Technical Informatics~1 (TI-1)'' at a university of applied sciences. Students were provided with a dedicated tutor instance to obtain linear, screen-reader-friendly explanations of lecture and exercise materials. Typical use included rewriting exercise sheets into a linear format, structured descriptions of figures and diagrams, conversion of CircuitJS schematics or exports into commented SPICE/LTspice netlists, and interpretation of simulation results via text-first outputs rather than graphical plots.
+
+    \item \textbf{Course-specific transformation workflows.}
+    The pattern is also reflected in recurring workflows developed in the earlier pattern collection: textual diagram descriptions, \ac{kv} map representations, tables for time-dependent simulation outputs, and netlists for circuits. The tutor makes these workflows available as interactive support during learning.
+
+    \item \textbf{General-purpose AI as informal accessibility aid.}
+    Blind and visually impaired learners increasingly use general-purpose AI systems to obtain descriptions of visual content and to translate diagrams into natural-language explanations. The pattern captures this emerging practice and adds course grounding, accessibility rules, and quality assurance.
+\end{itemize}
+
 \subsection*{Consequences}
 
 \noindent\textbf{Benefits}
@@ -110,46 +124,3 @@ The pattern was applied in the course ``Technical Informatics~1 (TI-1)'' at a un
     \item[$-$]  AI tutors can improve consistency but  become outdated if changes in exercises, notation, or tools are not processed in time.
     \item[$-$] Without careful framing, students may over-rely on the AI tutor. Instructors should define recommended or acceptable use of the AI tutor and consider privacy/copyright constraints for uploaded materials.
 \end{itemize}
-
-\begin{comment}
-   
-
-\subsection*{Related Patterns}
-
-\begin{itemize}
-    \item \textbf{Accessible by Design:} Designing teaching materials and tools with accessibility as a first-class concern rather than as an afterthought is a core principle of inclusive education and universal design \cite{w3c2023,burgstahler2015}. The AI tutor pattern complements this approach by enabling accessibility even when legacy materials are not fully accessible.
-    \item \textbf{Human-in-the-Loop Accessibility:} Instructors remain responsible for structuring and contextualizing materials, while the AI performs repetitive transformation and explanation tasks. This aligns with human-centered and human-in-the-loop AI concepts, where automation supports but does not replace human expertise \cite{shneiderman2020,ieee2019}.
-    \item \textbf{Personal Learning Tutor:} The AI tutor acts as an individualized learning assistant that adapts explanations to the learner’s pace and prior knowledge. Such adaptive tutoring systems are a well-established application area of AI in education \cite{holmes2019}.
-    \item \textbf{Progressive Disclosure of Complexity:} Students can request explanations at different levels of detail, supporting incremental learning and multiple representations of knowledge, which are central principles of Universal Design for Learning \cite{burgstahler2015,al-azawei2016}.
-    \item \textbf{Single Source of Truth:} Teaching materials remain unchanged for the general audience while accessibility is generated dynamically through the AI. This reduces parallel document maintenance and supports sustainable accessibility practices \cite{lazar2015}.
-\end{itemize}
-
-
-\subsection*{Known Uses}
-
-\begin{itemize}
-    \item \textbf{Technical Informatics~1 (course-specific AI tutor).}
-    The pattern has been applied in the course ``Technical Informatics~1 (TI-1)'' at a university of applied sciences. Students were provided with a dedicated tutor instance (e.g., via a course link such as \url{https://chatgpt.com/g/g-691ee1833a4481919e30b6c052201050-technische-informatik-1-tutor-fur-blinde}) to obtain linear, screen-reader-friendly explanations of lecture and exercise materials. Typical use included (i) rewriting exercise sheets into a linear format, (ii) structured descriptions of figures and diagrams, (iii) conversion of CircuitJS schematics/exports into commented SPICE/Ngspice netlists, and (iv) interpretation of simulation results via text-first outputs (e.g., \texttt{.print}/\texttt{.measure}) rather than graphical plots.
-
-    \item \textbf{Informal use of general-purpose (multimodal) AI as an accessibility aid.}
-    Beyond course-specific deployments, blind and visually impaired learners increasingly use general-purpose AI systems to obtain descriptions of visual content and to translate diagrams into natural-language explanations. Recent evaluations of multimodal LLMs as visual assistants document both the potential of such tools and the need for reliability safeguards, error handling, and uncertainty communication \cite{Karamolegkou2025}.
-
-    \item \textbf{LLM-based interaction for accessible visual artifacts (charts/diagrams).}
-    Related pilot systems and studies show how conversational interaction can improve accessibility of visual artifacts such as charts and diagrams, supporting exploration through structured responses instead of purely visual inspection \cite{Gorniak2024VizAbility,Sharif2025VoxEx}. These uses align with our pattern by treating LLMs as a mediation layer that turns visual encodings into accessible representations.
-\end{itemize}
-
-Although still emerging, these uses indicate that LLM-based tutoring can act as an accessibility amplifier in higher education when embedded within responsible, human-centered design and maintenance practices \cite{shneiderman2020,ieee2019,lazar2015}.
-\end{comment}
-
-\newpage
-\subsection*{Related Work}
-
-Recent work explores \ac{llm} and \ac{mllm} based tools as assistive technologies that translate visually encoded information into representations that can be perceived and navigated by \ac{bvi} users. Empirical evaluations indicate that \ac{mllm}s can support common visual assistance tasks, while reliability and error handling remain central challenges for broader use \cite{Karamolegkou2025}. 
-
-In the domain of data visualizations, conversational systems such as \textit{VizAbility} demonstrate how dialogue-based interaction can augment chart exploration \cite{Gorniak2024VizAbility}. Complementary work emphasizes that accessibility is not achieved by static descriptions alone but depends on interaction mechanisms that preserve user agency and enable independent exploration with screen readers \cite{Sharif2025VoxEx}. %Pattern~6 transfers these insights to \ac{stem} course materials and simulation results by prioritizing text-first outputs and structured explanations over purely graphical representations.
-
-A second line of related research focuses on making diagram semantics explicit so that users can query or learn from diagrams through language-based interaction. Approaches that generate detailed textual descriptions of diagrams for \ac{llm}-based exploration illustrate how ``silent'' graphics can be bridged into structured natural language, supporting accessible learning pathways for \ac{bvi} users \cite{Wegwerth2023Diagram}. 
-
-There is ongoing research how to extract circuit structure from schematics and generating netlists automatically. \cite{Hemker2024Schematics,Huang2025Netlistify} present deep-learning-based schematic-to-netlist pipelines demonstrating progress in component recognition and connectivity extraction. 
-
-For time-dependent simulation outputs, related state-of-the-art work on sonification (see Pattern 4 \textsc{Sonification of Time Series}). Haptic feedback gives an additional non-visual access that can complement text-based traces and key metrics \cite{Spagnuolo2025Sonification}.
